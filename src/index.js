@@ -67,7 +67,6 @@ const setting = async () => {
     }
 }
 
-
 ipcMain.on('load_database', (event, arg) => {
     new Promise ((resolve, reject) => {
         if (!fs.existsSync('./config.json')) {
@@ -79,7 +78,6 @@ ipcMain.on('load_database', (event, arg) => {
             resolve(config.path)
     }}).then((dbpath) => {
         console.log(dbpath);
+        event.sender.send('send_database', dbpath)
     })
-
-    // event.sender.send('send_database', dbpath)
 })
