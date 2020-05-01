@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script src="../js/uikit.min.js"></script>
+        <script src="../js/uikit-icons.min.js"></script>
+        <link rel="stylesheet" href="../css/uikit.min.css">
+    </head>
+    <body>
+        <div class="uk-container uk-padding-large">
+            <h1>BlenderHub</h1>
+            <hr>
+            <div id="installed">
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3 class="uk-card-title">Blender 2.82</h3>
+                    <p class="uk-text-bolder">インストール元: インストーラー</p>
+                    <button class="uk-button uk-button-primary" onclick="lunch()">起動</button>
+                </div>
+            </div>
+            <button class="uk-button uk-button-primary uk-button-small" uk-toggle="target: #add">バージョンを追加</button>
+        </div>
+        <div id="add" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <h2 class="uk-modal-title">バージョンの追加</h2>
+                <p>インストールされているBlenderをBlenderHubに追加するか、zipファイルを利用して新規にインストールすることができます。</p>
+                <div id="upload" class="uk-placeholder uk-text-center">
+                    <span uk-icon="icon: cloud-upload"></span>
+                    <span class="uk-text-middle">zipファイルをここにドラッグアンドドロップするか </span>
+                    <div uk-form-custom>
+                        <a id="select-zip" href="#">ファイルを選択する</a>
+                    </div>
+                </div>
+                <button class="uk-button uk-button-default uk-modal-close" type="button">閉じる</button>
+                <button id="select-folder" class="uk-button uk-button-primary" type="button">インストール済みのBlenderを登録</button>
+            </div>
+        </div>
+        <script src="../js/main.js"></script>
+    </body>
+</html>
