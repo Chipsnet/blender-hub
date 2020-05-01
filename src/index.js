@@ -78,6 +78,9 @@ ipcMain.on('load_database', (event, arg) => {
             resolve(config.path)
     }}).then((dbpath) => {
         console.log(dbpath);
+        let database_ts = JSON.parse(fs.readFileSync(dbpath+'/database.json'))
+        console.log(database_ts);
+        
         event.sender.send('send_database', dbpath)
     })
 })
