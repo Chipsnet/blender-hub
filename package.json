@@ -1,0 +1,1 @@
+    "build": "electron-packager . videotter --platform=win32 --arch=x64 --overwrite"
