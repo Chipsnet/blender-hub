@@ -1,1 +1,17 @@
+{
+  "name": "blender-hub",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/Chipsnet/blender-hub.git",
+  "author": "Minato86 <doronomori660@outlook.jp>",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^8.2.4",
+    "electron-packager": "^14.2.1",
+    "node-zip": "^1.1.1"
+  },
+  "scripts": {
+    "start": "electron .",
     "build": "electron-packager . videotter --platform=win32 --arch=x64 --overwrite"
+  }
+}
