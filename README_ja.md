@@ -19,6 +19,6 @@ tbd
 
 Donate with:
 
-[![Brave](.github\brave-logotype-full-color.png)](https://brave.com/chi953)
+[![Brave](https://raw.githubusercontent.com/Chipsnet/blender-hub/master/.github/brave-logotype-full-color.png)](https://brave.com/chi953)
 
 [Patreon](https://www.patreon.com/minato86) からも寄付できます
