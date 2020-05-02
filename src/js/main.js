@@ -14,9 +14,24 @@ ipcRenderer.send('load_database', 'load')
 
 // indexjsからの送信をキャッチ
 ipcRenderer.on('send_database', (event, arg) => {
-    if (arg.first) {
+    console.log(arg);
+    
+    if (arg.versions.length == 0) {
         installed_html.innerHTML = `<div class="uk-alert-danger" uk-alert>
             <p>インストール済みまたは登録されたBlenderがありません。<br>インストール済みのBlenderを登録するか、新規にインストールしてください。</p></div>`
+    } else {
+        let html_data = ""
+        
+        for (const key in arg.versions) {
+            console.log(arg.versions[key]);
+            html_data += `<div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title">${arg.versions[key].name}</h3>
+            <p class="uk-text-bolder">フォルダの場所: ${arg.versions[key].path}</p>
+            <button class="uk-button uk-button-primary" onclick="lunch()">起動</button>
+            </div>`
+        }
+
+        installed_html.innerHTML = html_data
     }
 })
 
