@@ -6,7 +6,7 @@
   "author": "Minato86 <doronomori660@outlook.jp>",
   "license": "MIT",
   "dependencies": {
-    "electron": "^8.2.4",
+    "electron": "^9.0.0",
     "electron-packager": "^14.2.1",
     "node-zip": "^1.1.1"
   },
