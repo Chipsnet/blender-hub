@@ -27,9 +27,9 @@ const setting = async () => {
     await dialog.showMessageBox(win, {
         type: 'info',
         buttons: ['OK'],
-        title: 'ディレクトリの選択',
-        message: '初回起動を検知しました',
-        detail: '初回起動時に必要なディレクトリ選択を行います。\n今後、インストールやバージョン情報の保存はこのディレクトリに行われます。'
+        title: 'データベースの設定',
+        message: 'データベースが存在しません',
+        detail: 'BlenderHubの実行にはデータベースが必要です。\nOKをクリックして、データベースを保存するフォルダを選択してください。\n以降はこのフォルダにBlenderがインストールされます。'
     })
     while (1) {
         result = await selectDir()
@@ -44,8 +44,7 @@ const setting = async () => {
             app.quit()
         } else {
             let configData = { "path": result.filePaths[0] }
-            let initConfig = { "versions": ["hey"] }
-            initConfig["versions"].push("hello")
+            let initConfig = { "versions": [] }
             console.log(initConfig);
             try {
                 fs.writeFileSync('./config.json', JSON.stringify(configData, null, "    ",))
@@ -77,7 +76,15 @@ ipcMain.on('load_database', (event, arg) => {
             config = JSON.parse(fs.readFileSync('./config.json'))
             resolve(config.path)
     }}).then((dbpath) => {
-        console.log(dbpath);
-        event.sender.send('send_database', dbpath)
+        if (fs.existsSync(dbpath+'/database.json')) {
+            database_ts = JSON.parse(fs.readFileSync(dbpath+'/database.json'))
+            event.sender.send('send_database', database_ts)
+        } else {
+            fs.unlinkSync('./config.json')
+            setting().then(result => {
+                database_ts = JSON.parse(fs.readFileSync(result+'/database.json'))
+                event.sender.send('send_database', database_ts)
+            })
+        }
     })
 })
