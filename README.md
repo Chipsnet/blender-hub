@@ -1,4 +1,4 @@
-日本語版の説明は[こちら](./README_ja.md)
+日本語版は[こちら](./README_ja.md)
 
 ## BlenderHub
 
