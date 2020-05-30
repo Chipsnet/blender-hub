@@ -15,9 +15,13 @@
             <div style="display: flex;">
                 <h1 style="margin-bottom: 0;">BlenderHub</h1>
                 <button id="refresh" class="uk-icon-link" uk-icon="refresh" style="margin: 0.2em 0 0 1em;"></button>
+                <button id="toggle_list" class="uk-icon-link" uk-icon="list" uk-toggle="target: .toggle"
+                    style="margin: 0.2em 0 0 1em;"></button>
             </div>
             <hr>
-            <div id="installed"></div>
+            <div id="content"></div>
+            <div id="installed_card" class="toggle uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s" uk-grid></div>
+            <div id="installed_list" class="toggle" hidden></div>            
             <button class="uk-button uk-button-primary uk-button-small uk-margin-top"
                 uk-toggle="target: #add">バージョンを追加</button>
         </div>
@@ -55,8 +59,7 @@
                         <div class="uk-margin">
                             <input id="dir" class="uk-input" type="text" disabled>
                         </div>
-                        <button id="regist_setting" class="uk-button uk-button-primary"
-                        type="button">登録</button>
+                        <button id="regist_setting" class="uk-button uk-button-primary" type="button">登録</button>
                     </fieldset>
                 </form>
             </div>
