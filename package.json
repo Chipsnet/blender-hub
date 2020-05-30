@@ -1,10 +1,10 @@
 {
-  "name": "blender-hub",
+  "name": "BlenderHub",
   "version": "1.0.0",
   "main": "src/index.js",
   "repository": "https://github.com/Chipsnet/blender-hub.git",
   "author": "Minato86 <doronomori660@outlook.jp>",
-  "license": "MIT",
+  "license": "GPL-2.0",
   "dependencies": {
     "node-zip": "^1.1.1"
   },
