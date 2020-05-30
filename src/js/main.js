@@ -132,6 +132,11 @@ ipcRenderer.on('res_add_database', (event, ...args) => {
     }
 })
 
+// 実行中のエラー
+ipcRenderer.on('run_err', (event, arg) => {
+    UIkit.notification({ message: 'エラーが発生しました。ERR: ' + arg, status: 'danger' })
+})
+
 const lunch = (arg) => {
     let id = arg.getAttribute("data-id")
     console.log(id);
