@@ -58,8 +58,10 @@ selectFolder.addEventListener('click', () => {
     }).then(result => {
         if (!result.canceled) {
             console.log(result.filePaths[0]);
+            UIkit.util.on('#loading', 'show', () => {
+                ipcRenderer.send('load_dir', result.filePaths[0])
+            })
             UIkit.modal(loadingModal).show();
-            UIkit.util.on('#loading', 'show', () => ipcRenderer.send('load_dir', result.filePaths[0]))
         }
     })
 })
