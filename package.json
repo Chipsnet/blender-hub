@@ -6,12 +6,29 @@
   "author": "Minato86 <doronomori660@outlook.jp>",
   "license": "MIT",
   "dependencies": {
-    "electron": "^9.0.0",
-    "electron-packager": "^14.2.1",
     "node-zip": "^1.1.1"
   },
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . videotter --platform=win32 --arch=x64 --overwrite"
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.minato86.blenderhub",
+    "files": [
+      "!config.json"
+    ],
+    "win": {
+      "target": {
+        "target": "zip",
+        "arch": [
+          "x64",
+          "ia32"
+        ]
+      }
+    }
+  },
+  "devDependencies": {
+    "electron": "^9.0.0",
+    "electron-builder": "^22.7.0"
   }
 }
