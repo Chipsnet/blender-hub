@@ -3,7 +3,9 @@ const ipcRenderer = electron.ipcRenderer
 const dialog = electron.remote.dialog
 
 // html elements
-const installed_html = document.getElementById('installed')
+const content = document.getElementById('content')
+const installedList = document.getElementById('installed_list')
+const installedCard = document.getElementById('installed_card')
 const drop = document.getElementById('upload')
 const selectZip = document.getElementById('select-zip')
 const selectFolder = document.getElementById('select-folder')
@@ -23,10 +25,11 @@ ipcRenderer.on('send_database', (event, arg) => {
     console.log(arg);
 
     if (arg.versions.length == 0) {
-        installed_html.innerHTML = `<div class="uk-alert-danger" uk-alert>
+        content.innerHTML = `<div class="uk-alert-danger" uk-alert>
             <p>インストール済みまたは登録されたBlenderがありません。<br>インストール済みのBlenderを登録するか、新規にインストールしてください。</p></div>`
     } else {
         let html_data = ""
+        let card_html_data = ""
 
         for (const key in arg.versions) {
             console.log(arg.versions[key]);
@@ -35,9 +38,16 @@ ipcRenderer.on('send_database', (event, arg) => {
             <p class="uk-text-bolder">フォルダの場所: ${arg.versions[key].dir}</p>
             <button data-id="${key}" class="uk-button uk-button-primary" onclick="lunch(this)">起動</button>
             </div>`
+
+            card_html_data += `<div class="uk-card uk-card-default uk-card-body">
+            <img class="uk-border-circle" width="40" height="40" src="../img/blender.png">
+            <h3 class="uk-card-title uk-margin-remove">${arg.versions[key].name}</h3>
+            ${arg.versions[key].dir}<button data-id="${key}" class="uk-button uk-button-primary uk-button-small uk-margin-top"
+            onclick="lunch(this)">起動</button></div>`
         }
 
-        installed_html.innerHTML = html_data
+        installedList.innerHTML = html_data
+        installedCard.innerHTML = card_html_data
     }
 })
 
