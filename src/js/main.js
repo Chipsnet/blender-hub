@@ -10,7 +10,6 @@ const drop = document.getElementById('upload')
 const selectZip = document.getElementById('select-zip')
 const selectFolder = document.getElementById('select-folder')
 const registSetting = document.getElementById('regist_setting')
-const installModal = document.getElementById('add')
 const settingModal = document.getElementById('setting')
 const loadingModal = document.getElementById('loading')
 const refreshButton = document.getElementById('refresh')
@@ -51,42 +50,6 @@ ipcRenderer.on('send_database', (event, arg) => {
     }
 })
 
-// ファイルドロップ時の動作
-// Source by https://qiita.com/nyamogera/items/3b74afa3ccb65ae918d7
-drop.ondragover = function () {
-    return false
-};
-
-drop.ondragleave = drop.ondragend = function () {
-    return false
-};
-
-drop.ondrop = function (e) {
-    e.preventDefault()
-
-    var file = e.dataTransfer.files[0]
-    console.log(file.path)
-
-    return false
-};
-
-// ファイルの選択
-selectZip.addEventListener('click', () => {
-    dialog.showOpenDialog(null, {
-        properties: ['openFile'],
-        title: 'インストールするzipファイルの選択',
-        defaultPath: '.',
-        filters: [
-            { name: 'zipファイル', extensions: ['zip'] }
-        ]
-    }).then(result => {
-        if (!result.canceled) {
-            console.log(result.filePaths[0]);
-            UIkit.modal(installModal).hide();
-        }
-    })
-})
-
 // インストール済みのBlender登録
 selectFolder.addEventListener('click', () => {
     dialog.showOpenDialog(null, {
@@ -95,7 +58,6 @@ selectFolder.addEventListener('click', () => {
     }).then(result => {
         if (!result.canceled) {
             console.log(result.filePaths[0]);
-            UIkit.modal(installModal).hide();
             UIkit.modal(loadingModal).show();
             UIkit.util.on('#loading', 'show', () => ipcRenderer.send('load_dir', result.filePaths[0]))
         }
