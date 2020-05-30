@@ -12,7 +12,10 @@
 
     <body>
         <div class="uk-container uk-padding-large">
-            <h1>BlenderHub</h1>
+            <div style="display: flex;">
+                <h1 style="margin-bottom: 0;">BlenderHub</h1>
+                <button id="refresh" class="uk-icon-link" uk-icon="refresh" style="margin: 0.2em 0 0 1em;"></button>
+            </div>
             <hr>
             <div id="installed"></div>
             <button class="uk-button uk-button-primary uk-button-small uk-margin-top"
@@ -21,6 +24,22 @@
         <div id="add" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
                 <h2 class="uk-modal-title">バージョンの追加</h2>
+                <p>インストールされているBlenderをBlenderHubに追加するか、zipファイルを利用して新規にインストールすることができます。</p>
+                <div id="upload" class="uk-placeholder uk-text-center">
+                    <span uk-icon="icon: cloud-upload"></span>
+                    <span class="uk-text-middle">zipファイルをここにドラッグアンドドロップするか </span>
+                    <div uk-form-custom>
+                        <a id="select-zip" href="#">ファイルを選択する</a>
+                    </div>
+                </div>
+                <button class="uk-button uk-button-default uk-modal-close" type="button">閉じる</button>
+                <button id="select-folder" class="uk-button uk-button-primary"
+                    type="button">インストール済みのBlenderを登録</button>
+            </div>
+        </div>
+        <div id="setting" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <h2 class="uk-modal-title">名前の設定</h2>
                 <p>インストールされているBlenderをBlenderHubに追加するか、zipファイルを利用して新規にインストールすることができます。</p>
                 <div id="upload" class="uk-placeholder uk-text-center">
                     <span uk-icon="icon: cloud-upload"></span>
