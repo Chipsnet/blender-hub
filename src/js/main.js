@@ -125,7 +125,7 @@ ipcRenderer.on('res_add_database', (event, ...args) => {
 const lunch = (arg) => {
     let id = arg.getAttribute("data-id")
     console.log(id);
-    UIkit.notification({ message: '起動をやっています...', status: 'primary' })
+    UIkit.notification({ message: '起動しています...', status: 'primary' })
     ipcRenderer.send('lunch_app', id)
 }
 
