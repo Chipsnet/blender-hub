@@ -120,8 +120,6 @@ ipcMain.on('lunch_app', (event, id) => {
     let jsondata = JSON.parse(fs.readFileSync(config.path+'/database.json'))
     console.log(jsondata.versions[id].path);
     exec(`"${jsondata.versions[id].path}"`, (err, stdout, stderr) => {
-        if (stdout) console.log('stdout', stdout)
-        if (stderr) console.log('stderr', stderr)
-        if (err !== null) console.log('err', err)
+        if (err !== null) event.sender.send('run_err', err)
     })
 })
