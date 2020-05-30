@@ -8,7 +8,6 @@ You can register multiple versions of Blender with multiple settings and start i
 ## Features
 
 - Registering an installed Blender
-- Install the portable version from a zip file
 - Naming and managing each version
 
 ## Installation
