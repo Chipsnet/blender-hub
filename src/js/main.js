@@ -32,17 +32,19 @@ ipcRenderer.on('send_database', (event, arg) => {
 
         for (const key in arg.versions) {
             console.log(arg.versions[key]);
-            html_data += `<div class="uk-card uk-card-default uk-card-body">
+            html_data += `<div class="uk-margin-small uk-card uk-card-default uk-card-body">
             <h3 class="uk-card-title">${arg.versions[key].name}</h3>
             <p class="uk-text-bolder">フォルダの場所: ${arg.versions[key].dir}</p>
             <button data-id="${key}" class="uk-button uk-button-primary" onclick="lunch(this)">起動</button>
+            <button data-id="${key}" class="uk-button uk-button-primary" onclick="lunch(this)">プロパティ</button>
             </div>`
 
             card_html_data += `<div class="uk-card uk-card-default uk-card-body">
             <img class="uk-border-circle" width="40" height="40" src="../img/blender.png">
             <h3 class="uk-card-title uk-margin-remove">${arg.versions[key].name}</h3>
             ${arg.versions[key].dir}<button data-id="${key}" class="uk-button uk-button-primary uk-button-small uk-margin-top"
-            onclick="lunch(this)">起動</button></div>`
+            onclick="lunch(this)">起動</button><button data-id="${key}" class="uk-margin-small-left uk-button uk-button-primary uk-button-small uk-margin-top"
+            onclick="lunch(this)">プロパティ</button></div>`
         }
 
         installedList.innerHTML = html_data
