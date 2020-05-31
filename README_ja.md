@@ -23,7 +23,7 @@ BlenderHubは、Blenderのバージョン管理ツールです。
 
 次のコマンドを実行して起動します
 
-```powershell
+```bash
 git clone https://github.com/Chipsnet/blender-hub.git
 cd blender-hub
 yarn install
