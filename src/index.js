@@ -23,7 +23,7 @@ app.whenReady().then(createWindows)
 const selectDir = () => dialog.showOpenDialog(win, {
     properties: ['openDirectory'],
     title: 'BlenderHubのディレクトリを設定する',
-    defaultPath: app.getPath('home'),
+    defaultPath: process.cwd(),
 })
 
 const setting = async () => {
@@ -82,25 +82,41 @@ ipcMain.on('load_database', (event, arg) => {
     }).then((dbpath) => {
         if (fs.existsSync(dbpath + '/database.json')) {
             database_ts = JSON.parse(fs.readFileSync(dbpath + '/database.json'))
-            event.sender.send('send_database', database_ts)
+            event.returnValue = database_ts
         } else {
             fs.unlinkSync('./config.json')
             setting().then(result => {
                 database_ts = JSON.parse(fs.readFileSync(result + '/database.json'))
-                event.sender.send('send_database', database_ts)
+                event.returnValue = database_ts
             })
         }
     })
 })
 
-ipcMain.on('load_dir', (event, arg) => {
-    // ディレクトリにBlenderが存在するか
+ipcMain.on('edit_database', (event, ...args) => {
     try {
-        fs.statSync(arg+'/blender.exe')
-        event.sender.send('res_load_dir', true, arg)
+        let config = JSON.parse(fs.readFileSync('./config.json'))
+        let jsondata = JSON.parse(fs.readFileSync(config.path+'/database.json'))
+        console.log(jsondata);
+        jsondata["versions"][args[0]]["name"] = args[1]
+        fs.writeFileSync(config.path+'/database.json', JSON.stringify(jsondata, null, "    "))
+        event.returnValue = [true, ""]
     } catch (error) {
-        console.log(error);
-        event.sender.send('res_load_dir', false, arg)
+        console.log('error:', error);
+        event.returnValue = [false, error]
+    }
+})
+
+ipcMain.on('remove_database', (event, arg) => {
+    try {
+        let config = JSON.parse(fs.readFileSync('./config.json'))
+        let jsondata = JSON.parse(fs.readFileSync(config.path+'/database.json'))
+        jsondata["versions"].splice(arg, 1)
+        fs.writeFileSync(config.path+'/database.json', JSON.stringify(jsondata, null, "    "))
+        event.returnValue = [true, ""]
+    } catch (error) {
+        console.log('error:', error);
+        event.returnValue = [false, error]
     }
 })
 
@@ -114,6 +130,17 @@ ipcMain.on('add_database', (event, dir, name) => {
     } catch (error) {
         console.log('error:', error);
         event.sender.send('res_add_database', false, error)
+    }
+})
+
+ipcMain.on('load_dir', (event, arg) => {
+    // ディレクトリにBlenderが存在するか
+    try {
+        fs.statSync(arg+'/blender.exe')
+        event.sender.send('res_load_dir', true, arg)
+    } catch (error) {
+        console.log(error);
+        event.sender.send('res_load_dir', false, arg)
     }
 })
 
