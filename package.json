@@ -1,6 +1,6 @@
 {
   "name": "blender-hub",
-  "version": "1.0.0",
+  "version": "1.1.0-rc.1",
   "main": "src/index.js",
   "repository": "https://github.com/Chipsnet/blender-hub.git",
   "author": "Minato86 <doronomori660@outlook.jp>",
