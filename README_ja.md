@@ -1,18 +1,37 @@
 The English document is [here](./README.md).
 
-## BlenderHub
+# BlenderHub
 
-BlenderHubは、Blender向けバージョン管理ツールです。     
-複数のバージョン、複数の設定のBlenderを登録でき、一覧からワンクリックで起動できます。
+BlenderHubは、Blenderのバージョン管理ツールです。       
+複数バージョンのBlenderを名前を付けて管理、ワンクリックで起動できます。
 
-### 機能
+## 機能
 
 - インストール済みのBlenderを登録する
 - バージョンごとに名前を付けて管理する
 
-### インストール方法
+## インストール
 
-tbd
+## インストール（ソース）
+
+ソースコードからインストールする方法です。
+
+以下の環境が必要です。
+
+- Node.js: `v12.x`
+- Yarn: `Latest`
+
+次のコマンドを実行して起動します
+
+```powershell
+git clone https://github.com/Chipsnet/blender-hub.git
+cd blender-hub
+yarn install
+yarn start
+```
+
+ビルドするには`yarn build`を実行します。        
+distフォルダが生成され、そこにビルド済みのzipファイルが生成されます。
 
 ## 寄付
 
