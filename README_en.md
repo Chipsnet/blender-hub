@@ -1,4 +1,4 @@
-日本語版は[こちら](./README.md)
+> 日本語版は[こちら](./README.md)
 
 # BlenderHub
 
