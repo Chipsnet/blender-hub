@@ -66,6 +66,6 @@ Never make a Pull Request to the master branch.
 
 - Kyash (ID: minato86)
 - [Patreon](https://www.patreon.com/minato86)
-- [Brave](https://brave.com/chi953) Rewards (上部のBrave Rewardsボタンから寄付できます)
+- [Brave](https://brave.com/chi953) Rewards (You can donate from the Brave Rewards button at the top)
 - [Fanbox](https://minato86.fanbox.cc/)
 - [PayPal.me](https://www.paypal.me/minatoo86)
