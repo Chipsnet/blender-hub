@@ -5,10 +5,20 @@ The English document is [here](./README.md).
 BlenderHubは、Blenderのバージョン管理ツールです。       
 複数バージョンのBlenderを名前を付けて管理、ワンクリックで起動できます。
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Chipsnet/blender-hub/Node.js%20CI?style=flat-square)
+![GitHub](https://img.shields.io/github/license/chipsnet/blender-hub?style=flat-square)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/chipsnet/blender-hub?include_prereleases&style=flat-square)
+![GitHub All Releases](https://img.shields.io/github/downloads/chipsnet/blender-hub/total?style=flat-square)
+
+
 ## 機能
 
 - インストール済みのBlenderを登録する
 - バージョンごとに名前を付けて管理する
+
+## 動作環境
+
+- Windows
 
 ## インストール
 
