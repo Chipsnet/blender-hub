@@ -29,6 +29,11 @@ BlenderHubは、Blenderのバージョン管理ツールです。
 |Windows 32bit|[BlenderHub-1.0.0-ia32-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/1.0.0/BlenderHub-1.0.0-ia32-win.zip)|
 |Windows 64bit|[BlenderHub-1.0.0-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/1.0.0/BlenderHub-1.0.0-win.zip)|
 
+解凍したフォルダ内にある`blender-hub.exe`を実行すると、ソフトウェアが起動します。
+
+Beta版が欲しいですか？      
+[Github Actions](https://github.com/Chipsnet/blender-hub/actions?query=workflow%3A%22Node.js+CI%22)のArtifactsから手に入れることができます
+
 ## インストール（ソース）
 
 ソースコードからインストールする方法です。
@@ -50,10 +55,18 @@ yarn start
 ビルドするには`yarn build`を実行します。        
 distフォルダが生成され、そこにビルド済みのzipファイルが生成されます。
 
-## 寄付
+## コントリビュート
 
-Donate with:
+バグを見つけたり、欲しい機能がありましたら、[issueを立てて](https://github.com/Chipsnet/blender-hub/issues)問題を報告してください！
 
-[![Brave](https://raw.githubusercontent.com/Chipsnet/blender-hub/master/.github/brave-logotype-full-color.png)](https://brave.com/chi953)
+あなたは開発者ですか？      
+修正がある場合はdevelopブランチにPull Requestを行ってください。     
+決してmasterブランチにPull Requestをしないでください。
 
-[Patreon](https://www.patreon.com/minato86) からも寄付できます
+## Donate
+
+- Kyash (ID: minato86)
+- [Patreon](https://www.patreon.com/minato86)
+- [Brave](https://brave.com/chi953) Rewards (上部のBrave Rewardsボタンから寄付できます)
+- [Fanbox](https://minato86.fanbox.cc/)
+- [PayPal.me](https://www.paypal.me/minatoo86)
