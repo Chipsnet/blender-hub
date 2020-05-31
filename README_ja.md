@@ -22,6 +22,13 @@ BlenderHubは、Blenderのバージョン管理ツールです。
 
 ## インストール
 
+以下のリンクからzipファイルをダウンロードします。
+
+|プラットフォーム|ダウンロードリンク|
+|---------------|----------------|
+|Windows 32bit|[BlenderHub-1.0.0-ia32-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/1.0.0/BlenderHub-1.0.0-ia32-win.zip)|
+|Windows 64bit|[BlenderHub-1.0.0-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/1.0.0/BlenderHub-1.0.0-win.zip)|
+
 ## インストール（ソース）
 
 ソースコードからインストールする方法です。

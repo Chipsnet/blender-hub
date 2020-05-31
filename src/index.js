@@ -9,10 +9,12 @@ const createWindows = () => {
         height: 600,
         webPreferences: {
             nodeIntegration: false,
-            preload: __dirname + '/js/preload.js'
+            preload: __dirname + '/js/preload.js',
         }
     })
 
+    win.setMenu(null)
+    win.webContents.openDevTools()
     win.loadFile(__dirname + '/views/index.html')
 }
 
