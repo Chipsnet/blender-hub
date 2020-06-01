@@ -22,17 +22,31 @@ BlenderHubは、Blenderのバージョン管理ツールです。
 
 ## インストール
 
-以下のリンクからzipファイルをダウンロードします。
+### Release（安定版）
 
 |プラットフォーム|ダウンロードリンク|
 |---------------|----------------|
-|Windows 32bit|[BlenderHub-1.0.0-ia32-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/1.0.0/BlenderHub-1.0.0-ia32-win.zip)|
-|Windows 64bit|[BlenderHub-1.0.0-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/1.0.0/BlenderHub-1.0.0-win.zip)|
+|Windows|Released URL|
+|Mac|開発中|
 
-解凍したフォルダ内にある`blender-hub.exe`を実行すると、ソフトウェアが起動します。
+ダウンロードしたファイルを実行すると、BlenderHubが自動でインストールされます。      
+安定版は自動更新機能があるので、新規バージョンが出た場合自動で更新されます。
 
-Beta版が欲しいですか？      
-[Github Actions](https://github.com/Chipsnet/blender-hub/actions?query=workflow%3A%22Node.js+CI%22)のArtifactsから手に入れることができます
+### Pre-Release（プレビュー版）
+
+開発版のビルドです。        
+バグなどがあり、不安定な場合があります。
+
+|プラットフォーム|ダウンロードリンク|
+|---------------|----------------|
+|Windows 32bit|[blender-hub-1.1.0-rc.6-ia32-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0-rc.6/blender-hub-1.1.0-rc.6-ia32-win.zip)|
+|Windows 64bit|[blender-hub-1.1.0-rc.6-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0-rc.6/blender-hub-1.1.0-rc.6-win.zip)|
+|Mac|開発中|
+
+プレビュー版にはインストーラーはありません。        
+ダウンロードしたファイルを解凍し、中の`blender-hub.exe`を実行してください。
+
+プレビュー版では、自動更新は無効になっています。
 
 ## インストール（ソース）
 
@@ -52,8 +66,8 @@ yarn install
 yarn start
 ```
 
-ビルドするには`yarn build`を実行します。        
-distフォルダが生成され、そこにビルド済みのzipファイルが生成されます。
+インストーラーをビルドするには、`yarn build`を実行します。      
+zip形式でテストビルドを行うには、`yarn prebuild`を実行します。
 
 ## コントリビュート
 
