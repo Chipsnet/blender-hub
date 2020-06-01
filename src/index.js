@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const fs = require("fs")
 const exec = require('child_process').exec
+require('./auto-update');
 let win;
 
 const createWindows = () => {
