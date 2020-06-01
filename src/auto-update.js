@@ -3,6 +3,7 @@ const log = require('electron-log')
 const {autoUpdater} = require('electron-updater')
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
+autoUpdater.allowPrerelease = false
 log.info('App starting...');
 function sendStatusToWindow(text) {
   log.info(text);
