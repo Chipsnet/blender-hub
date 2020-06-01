@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "repository": "https://github.com/Chipsnet/blender-hub.git",
   "author": "Minato86 <doronomori660@outlook.jp>",
-  "license": "GPL-2.0",
+  "license": "MPL-2.0",
   "dependencies": {
     "node-zip": "^1.1.1"
   },
