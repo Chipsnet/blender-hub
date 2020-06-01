@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder",
+    "build": "electron-builder --publish never",
     "release": "electron-builder --publish always"
   },
   "build": {
