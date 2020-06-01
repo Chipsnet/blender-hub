@@ -1,5 +1,6 @@
 // module
 const electron = window.electron
+const log = window.log
 const ipcRenderer = electron.ipcRenderer
 const dialog = electron.remote.dialog
 
@@ -91,7 +92,6 @@ registSetting.addEventListener('click', () => {
 
 // add_databaseの結果
 ipcRenderer.on('res_add_database', (event, ...args) => {
-    console.log("res done");
     UIkit.modal(loadingModal).hide();
     if (args) {
         document.location.reload()
