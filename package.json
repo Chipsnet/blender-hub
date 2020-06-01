@@ -18,11 +18,12 @@
   "build": {
     "appId": "com.minato86.blenderhub",
     "files": [
-      "!config.json"
+      "!config.json",
+      "!publish.bat"
     ],
     "win": {
       "target": {
-        "target": "zip",
+        "target": "nsis",
         "arch": [
           "x64",
           "ia32"
