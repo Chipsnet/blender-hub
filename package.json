@@ -12,25 +12,10 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --publish never",
-    "release": "electron-builder --publish always"
-  },
-  "build": {
-    "appId": "com.minato86.blenderhub",
-    "files": [
-      "!config.json",
-      "!publish.bat"
-    ],
-    "win": {
-      "target": {
-        "target": "nsis",
-        "arch": [
-          "x64",
-          "ia32"
-        ]
-      },
-      "publish": ["github"]
-    }
+    "build": "electron-builder --publish never -c build/electron-builder.yml",
+    "prebuild": "electron-builder --publish never -c build/electron-builder-pre.yml",
+    "release": "electron-builder --publish always -c build/electron-builder.yml",
+    "prerelease": "electron-builder --publish always -c build/electron-builder-pre.yml"
   },
   "devDependencies": {
     "electron": "9.0.0",
