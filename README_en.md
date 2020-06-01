@@ -1,5 +1,7 @@
 > 日本語版は[こちら](./README.md)
 
+> 📌 For foreign Blender users. Sorry, BlenderHub only supports Japanese language now. However, we plan to support multiple languages in the future. Please wait for support or learn Japanese.
+
 # BlenderHub
 
 BlenderHub is a version management tool for Blender.     
