@@ -1,0 +1,13 @@
+appId: com.minato86.blenderhub
+files:
+- "!config.json"
+- "!release.bat"
+- "!prerelease.bat"
+win:
+  target:
+    target: zip
+    arch:
+    - x64
+    - ia32
+  publish:
+  - github
