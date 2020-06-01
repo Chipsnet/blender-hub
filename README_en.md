@@ -1,5 +1,7 @@
 > 日本語版は[こちら](./README.md)
 
+> 📌 For foreign Blender users. Sorry, BlenderHub only supports Japanese language now. However, we plan to support multiple languages in the future. Please wait for support or learn Japanese.
+
 # BlenderHub
 
 BlenderHub is a version management tool for Blender.     
@@ -19,19 +21,31 @@ Manage multiple versions of Blender by name and launch them with a one click.
 
 - Windows
 
-## Installation
-
-Download the zip file from the following link.
+### Release（Stable）
 
 |Platform|Download Link|
 |---------------|----------------|
-|Windows 32bit|[BlenderHub-1.0.0-ia32-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/1.0.0/BlenderHub-1.0.0-ia32-win.zip)|
-|Windows 64bit|[BlenderHub-1.0.0-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/1.0.0/BlenderHub-1.0.0-win.zip)|
+|Windows|Released URL|
+|Mac|Under development|
 
-Run `blender-hub.exe` in the unzipped folder to start the software.
+When you run the downloaded file, BlenderHub will be installed automatically.      
+The stable version has an automatic update feature, so it will update automatically when a new version is released.
 
-Do you want the Beta version?       
-You can get it from Artifacts on [Github Actions](https://github.com/Chipsnet/blender-hub/actions?query=workflow%3A%22Node.js+CI%22).
+### Pre-Release（Preview）
+
+This is a build of the development version.        
+It has bugs and may be unstable.
+
+|Platform|Download Link|
+|---------------|----------------|
+|Windows 32bit|[blender-hub-1.1.0-rc.6-ia32-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0-rc.6/blender-hub-1.1.0-rc.6-ia32-win.zip)|
+|Windows 64bit|[blender-hub-1.1.0-rc.6-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0-rc.6/blender-hub-1.1.0-rc.6-win.zip)|
+|Mac|Under development|
+
+There is no installer for the preview version.        
+Unzip the downloaded file and run `blender-hub.exe` inside.
+
+In the preview version, automatic updates are disabled.
 
 ## Installation (Source)
 
@@ -51,8 +65,8 @@ yarn install
 yarn start
 ```
 
-To build, run `yarn build`.        
-A dist folder will be created and a built zip file will be generated in it.
+To build the installer, run `yarn build`.      
+To do a test build in zip format, run `yarn prebuild`.
 
 ## Contribute
 
