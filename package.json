@@ -6,11 +6,14 @@
   "author": "Minato86 <doronomori660@outlook.jp>",
   "license": "MPL-2.0",
   "dependencies": {
+    "electron-log": "^4.2.0",
+    "electron-updater": "^4.3.1",
     "node-zip": "^1.1.1"
   },
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "release": "electron-builder --publish always"
   },
   "build": {
     "appId": "com.minato86.blenderhub",
@@ -24,7 +27,8 @@
           "x64",
           "ia32"
         ]
-      }
+      },
+      "publish": ["github"]
     }
   },
   "devDependencies": {
