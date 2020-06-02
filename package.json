@@ -13,9 +13,9 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --publish never -c build/electron-builder.yml",
-    "prebuild": "electron-builder --publish never -c build/electron-builder-pre.yml",
+    "pre-build": "electron-builder --publish never -c build/electron-builder-pre.yml",
     "release": "electron-builder --publish always -c build/electron-builder.yml",
-    "prerelease": "electron-builder --publish always -c build/electron-builder-pre.yml"
+    "pre-release": "electron-builder --publish always -c build/electron-builder-pre.yml"
   },
   "devDependencies": {
     "electron": "9.0.0",
