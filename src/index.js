@@ -2,6 +2,7 @@ const log = require('electron-log')
 const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const fs = require("fs")
 const exec = require('child_process').exec
+const config = require('../package.json')
 require('./auto-update');
 let win;
 
@@ -35,9 +36,18 @@ const createWindows = () => {
 
 app.whenReady().then(createWindows)
 
+// 更新した後かどうか確認するやつ
+if (fs.existsSync(dbFile)) {
+    let dbData = JSON.parse(fs.readFileSync(dbFile))
+    log.debug("db-app-version:", dbData["app-version"], "config-app-version:", config.version)
+    if (dbData["app-version"] == config.version) {
+        log.info('false')
+    }
+}
+
 ipcMain.on('load_database', (event, arg) => {
     if (!fs.existsSync(dbFile)) {
-        let dbData = { "versions": [] }
+        let dbData = { "versions": [], "app-version": config.version }
         fs.writeFileSync(dbFile, JSON.stringify(dbData, null, "    "))
         event.returnValue = dbData
         log.debug(dbData)

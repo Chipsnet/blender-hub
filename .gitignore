@@ -1,6 +1,7 @@
 node_modules
 config.json
 dist
+prerelease.bat
 release.bat
 prerelease.bat
 yarn-error.log
