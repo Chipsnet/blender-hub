@@ -4,7 +4,7 @@ const { autoUpdater } = require('electron-updater')
 
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
-autoUpdater.allowPrerelease = true
+autoUpdater.allowPrerelease = false;
 log.info('App starting...');
 
 const options = { 
