@@ -1,5 +1,5 @@
 const log = require('electron-log')
-const { app, BrowserWindow, ipcMain, dialog } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron')
 const fs = require("fs")
 const exec = require('child_process').exec
 const config = require('../package.json')
@@ -11,6 +11,13 @@ log.transports.file.level = 'debug'
 const dataDir = app.getPath('userData')
 const dbFile = dataDir + '/database.json'
 log.debug("dir:", dataDir, "file:", dbFile)
+
+const options = {
+    type: "question",
+    buttons: ['はい', 'いいえ'],
+    title: "BlenderHubはアップデートされました。",
+    message: "更新履歴を表示しますか？"
+}
 
 process.on('uncaughtException', (err) => {
     log.error('electron:event:uncaughtException');
@@ -32,18 +39,27 @@ const createWindows = () => {
     win.setMenu(null)
     // win.webContents.openDevTools()
     win.loadFile(__dirname + '/views/index.html')
+
+    // 更新した後かどうか確認するやつ
+    if (fs.existsSync(dbFile)) {
+        let dbData = JSON.parse(fs.readFileSync(dbFile))
+        log.debug("db-app-version:", dbData["app-version"], "config-app-version:", config.version)
+        if (dbData["app-version"] != config.version) {
+            log.info('false')
+            dialog.showMessageBox(win, options).then((res) => {
+                if (res.response == 0) {
+                    shell.openExternal(`https://github.com/Chipsnet/blender-hub/releases/tag/v${config.version}`)
+                }
+                let jsondata = JSON.parse(fs.readFileSync(dbFile))
+                jsondata["app-version"] = config.version
+                log.debug(jsondata)
+                fs.writeFileSync(dbFile, JSON.stringify(jsondata, null, "    "))
+            })
+        }
+    }
 }
 
 app.whenReady().then(createWindows)
-
-// 更新した後かどうか確認するやつ
-if (fs.existsSync(dbFile)) {
-    let dbData = JSON.parse(fs.readFileSync(dbFile))
-    log.debug("db-app-version:", dbData["app-version"], "config-app-version:", config.version)
-    if (dbData["app-version"] == config.version) {
-        log.info('false')
-    }
-}
 
 ipcMain.on('load_database', (event, arg) => {
     if (!fs.existsSync(dbFile)) {
