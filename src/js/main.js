@@ -36,19 +36,32 @@ if (db.versions.length == 0) {
 
     for (const key in db.versions) {
         console.log(db.versions[key]);
-        html_data += `<div class="uk-margin-small uk-card uk-card-default uk-card-body">
-        <h3 class="uk-card-title">${db.versions[key].name}</h3>
-        <p class="uk-text-bolder">フォルダの場所: ${db.versions[key].dir}</p>
-        <button data-id="${key}" class="uk-button uk-button-primary" onclick="lunch(this)">起動</button>
-        <button id="refresh" data-id="${key}" onclick="edit(this)" class="uk-icon-link" uk-icon="cog" style="margin: 0.2em 0 0 1em;"></button>
-        </div>`
-
-        card_html_data += `<div class="uk-card uk-card-default uk-card-body">
-        <img class="uk-border-circle" width="40" height="40" src="../img/blender.png">
-        <h3 class="uk-card-title uk-margin-remove">${db.versions[key].name}</h3>
-        ${db.versions[key].dir}<div class="uk-margin-top"><button data-id="${key}" class="uk-button uk-button-primary uk-button-small"
-        onclick="lunch(this)">起動</button>
-        <button id="refresh" data-id="${key}" onclick="edit(this)" class="uk-icon-link uk-margin-small-left" uk-icon="cog"></button></div></div>`
+        if (db.versions[key]["blender-launcher"]) {
+            html_data += `<div class="uk-margin-small uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title">${db.versions[key].name}</h3>
+            <p class="uk-text-bolder">フォルダの場所: ${db.versions[key].dir}</p>
+            <button data-id="${key}" class="uk-button uk-button-primary" onclick="lunch(this)">起動</button></div>`
+    
+            card_html_data += `<div class="uk-card uk-card-default uk-card-body">
+            <img class="uk-border-circle" width="40" height="40" src="../img/blender.png">
+            <h3 class="uk-card-title uk-margin-remove">${db.versions[key].name}</h3>
+            <p style="word-wrap: break-word;">${db.versions[key].dir}</p><div class="uk-margin-top"><button data-id="${key}" class="uk-button uk-button-primary uk-button-small"
+            onclick="lunch(this)">起動</button></div></div>`
+        } else {
+            html_data += `<div class="uk-margin-small uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title">${db.versions[key].name}</h3>
+            <p class="uk-text-bolder">フォルダの場所: ${db.versions[key].dir}</p>
+            <button data-id="${key}" class="uk-button uk-button-primary" onclick="lunch(this)">起動</button>
+            <button id="refresh" data-id="${key}" onclick="edit(this)" class="uk-icon-link" uk-icon="cog" style="margin: 0.2em 0 0 1em;"></button>
+            </div>`
+    
+            card_html_data += `<div class="uk-card uk-card-default uk-card-body">
+            <img class="uk-border-circle" width="40" height="40" src="../img/blender.png">
+            <h3 class="uk-card-title uk-margin-remove">${db.versions[key].name}</h3>
+            <p style="word-wrap: break-word;">${db.versions[key].dir}</p><div class="uk-margin-top"><button data-id="${key}" class="uk-button uk-button-primary uk-button-small"
+            onclick="lunch(this)">起動</button>
+            <button id="refresh" data-id="${key}" onclick="edit(this)" class="uk-icon-link uk-margin-small-left" uk-icon="cog"></button></div></div>`
+        }
     }
 
     installedList.innerHTML = html_data
@@ -105,11 +118,17 @@ ipcRenderer.on('run_err', (event, arg) => {
     UIkit.notification({ message: 'エラーが発生しました。ERR: ' + arg, status: 'danger' })
 })
 
+ipcRenderer.on('reload', (event, arg) => {
+    UIkit.modal(loadingModal).show().then(() => {
+        document.location.reload()
+    });
+})
+
 const lunch = (arg) => {
     let id = arg.getAttribute("data-id")
     console.log(id);
     UIkit.notification({ message: '起動しています...', status: 'primary' })
-    ipcRenderer.send('lunch_app', id)
+    ipcRenderer.send('lunch_app', id, db)
 }
 
 // プロパティボタンが押されたとき
