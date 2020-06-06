@@ -2,6 +2,8 @@
 
 # BlenderHub
 
+[![Image from Gyazo](https://i.gyazo.com/66b65ee1e919d97eb1eaea00566dbc3f.png)](https://gyazo.com/66b65ee1e919d97eb1eaea00566dbc3f)
+
 BlenderHubは、Blenderのバージョン管理ツールです。       
 複数バージョンのBlenderを名前を付けて管理、ワンクリックで起動できます。
 
