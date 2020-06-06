@@ -1,24 +1,86 @@
-日本語版の説明は[こちら](./README_ja.md)
+> The English document is [here](./README_en.md).
 
-## BlenderHub
+# BlenderHub
 
-BlenderHub is a version management tool for Blender.     
-You can register multiple versions of Blender with multiple settings and start it with one click from the list.
+BlenderHubは、Blenderのバージョン管理ツールです。       
+複数バージョンのBlenderを名前を付けて管理、ワンクリックで起動できます。
 
-## Features
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Chipsnet/blender-hub/Node.js%20CI?style=flat-square)
+![GitHub](https://img.shields.io/github/license/chipsnet/blender-hub?style=flat-square)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/chipsnet/blender-hub?include_prereleases&style=flat-square)
+![GitHub All Releases](https://img.shields.io/github/downloads/chipsnet/blender-hub/total?style=flat-square)
 
-- Registering an installed Blender
-- Install the portable version from a zip file
-- Naming and managing each version
 
-## Installation
+## 機能
 
-tbd
+- インストール済みのBlenderを登録する
+- バージョンごとに名前を付けて管理する
+
+## 動作環境
+
+- Windows
+
+## インストール
+
+### Release（安定版）
+
+|プラットフォーム|ダウンロードリンク|
+|---------------|----------------|
+|Windows|Released URL|
+|Mac|開発中|
+
+ダウンロードしたファイルを実行すると、BlenderHubが自動でインストールされます。      
+安定版は自動更新機能があるので、新規バージョンが出た場合自動で更新されます。
+
+### Pre-Release（プレビュー版）
+
+開発版のビルドです。        
+バグなどがあり、不安定な場合があります。
+
+|プラットフォーム|ダウンロードリンク|
+|---------------|----------------|
+|Windows 32bit|[blender-hub-1.1.0-rc.6-ia32-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0-rc.6/blender-hub-1.1.0-rc.6-ia32-win.zip)|
+|Windows 64bit|[blender-hub-1.1.0-rc.6-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0-rc.6/blender-hub-1.1.0-rc.6-win.zip)|
+|Mac|開発中|
+
+プレビュー版にはインストーラーはありません。        
+ダウンロードしたファイルを解凍し、中の`blender-hub.exe`を実行してください。
+
+プレビュー版では、自動更新は無効になっています。
+
+## インストール（ソース）
+
+ソースコードからインストールする方法です。
+
+以下の環境が必要です。
+
+- Node.js: `v12.x`
+- Yarn: `Latest`
+
+次のコマンドを実行して起動します
+
+```bash
+git clone https://github.com/Chipsnet/blender-hub.git
+cd blender-hub
+yarn install
+yarn start
+```
+
+インストーラーをビルドするには、`yarn build`を実行します。      
+zip形式でテストビルドを行うには、`yarn prebuild`を実行します。
+
+## コントリビュート
+
+バグを見つけたり、欲しい機能がありましたら、[issueを立てて](https://github.com/Chipsnet/blender-hub/issues)問題を報告してください！
+
+あなたは開発者ですか？      
+修正がある場合はdevelopブランチにPull Requestを行ってください。     
+決してmasterブランチにPull Requestをしないでください。
 
 ## Donate
 
-Donate with:
-
-[![Brave](https://raw.githubusercontent.com/Chipsnet/blender-hub/master/.github/brave-logotype-full-color.png)](https://brave.com/chi953)
-
-And Join [Patreon](https://www.patreon.com/minato86)
+- Kyash (ID: minato86)
+- [Patreon](https://www.patreon.com/minato86)
+- [Brave](https://brave.com/chi953) Rewards (上部のBrave Rewardsボタンから寄付できます)
+- [Fanbox](https://minato86.fanbox.cc/)
+- [PayPal.me](https://www.paypal.me/minatoo86)
