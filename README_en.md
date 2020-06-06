@@ -25,7 +25,7 @@ Manage multiple versions of Blender by name and launch them with a one click.
 
 |Platform|Download Link|
 |---------------|----------------|
-|Windows|Released URL|
+|Windows|[blender-hub-Setup-1.1.0.exe](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0/blender-hub-Setup-1.1.0.exe)|
 |Mac|Under development|
 
 When you run the downloaded file, BlenderHub will be installed automatically.      

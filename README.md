@@ -28,7 +28,7 @@ BlenderHubは、Blenderのバージョン管理ツールです。
 
 |プラットフォーム|ダウンロードリンク|
 |---------------|----------------|
-|Windows|Released URL|
+|Windows|[blender-hub-Setup-1.1.0.exe](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0/blender-hub-Setup-1.1.0.exe)|
 |Mac|開発中|
 
 ダウンロードしたファイルを実行すると、BlenderHubが自動でインストールされます。      
@@ -78,6 +78,12 @@ zip形式でテストビルドを行うには、`yarn prebuild`を実行しま�
 あなたは開発者ですか？      
 修正がある場合はdevelopブランチにPull Requestを行ってください。     
 決してmasterブランチにPull Requestをしないでください。
+
+## License
+
+### Icon data
+
+Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)
 
 ## Donate
 
