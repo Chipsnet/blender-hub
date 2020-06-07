@@ -46,7 +46,8 @@ if (db.versions.length == 0) {
         card_html_data += `<div class="uk-card uk-card-default uk-card-body">
         <img class="uk-border-circle" width="40" height="40" src="../img/blender.png">
         <h3 class="uk-card-title uk-margin-remove">${db.versions[key].name}</h3>
-        ${db.versions[key].dir}<div class="uk-margin-top"><button data-id="${key}" class="uk-button uk-button-primary uk-button-small"
+        <p title="${db.versions[key].dir}">${db.versions[key].dir}</p>
+        <div class="uk-margin-top"><button data-id="${key}" class="uk-button uk-button-primary uk-button-small"
         onclick="lunch(this)">起動</button>
         <button id="refresh" data-id="${key}" onclick="edit(this)" class="uk-icon-link uk-margin-small-left" uk-icon="cog"></button></div></div>`
     }
