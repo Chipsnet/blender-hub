@@ -28,7 +28,7 @@ BlenderHubは、Blenderのバージョン管理ツールです。
 
 |プラットフォーム|ダウンロードリンク|
 |---------------|----------------|
-|Windows|[blender-hub-Setup-1.1.0.exe](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0/blender-hub-Setup-1.1.0.exe)|
+|Windows|[blender-hub-Setup-1.1.1.exe](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.1/blender-hub-Setup-1.1.1.exe)|
 |Mac|開発中|
 
 ダウンロードしたファイルを実行すると、BlenderHubが自動でインストールされます。      
