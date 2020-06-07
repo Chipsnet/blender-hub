@@ -37,7 +37,7 @@ const createWindows = () => {
     })
 
     win.setMenu(null)
-    // win.webContents.openDevTools()
+    win.webContents.openDevTools()
     win.loadFile(__dirname + '/views/index.html')
 
     // 更新した後かどうか確認するやつ

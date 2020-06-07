@@ -8,6 +8,17 @@
         <script src="../js/uikit.min.js"></script>
         <script src="../js/uikit-icons.min.js"></script>
         <link rel="stylesheet" href="../css/uikit.min.css">
+
+        <style>
+            p {
+                display:-webkit-box;
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp: 2;
+                word-break: break-all;
+                overflow:hidden;
+                text-overflow:ellipsis;
+            }
+        </style>
     </head>
 
     <body>
@@ -20,10 +31,11 @@
             </div>
             <hr>
             <div id="content"></div>
-            <div id="installed_card" class="toggle uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s" uk-grid></div>
-            <div id="installed_list" class="toggle" hidden></div>            
+            <div id="installed_card" class="toggle uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s" uk-grid>
+            </div>
+            <div id="installed_list" class="toggle" hidden></div>
             <button id="select-folder" class="uk-button uk-button-primary uk-button-small uk-margin-top"
-            type="button">バージョンを追加</button>
+                type="button">バージョンを追加</button>
         </div>
         <div id="loading" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
@@ -61,8 +73,10 @@
                         <div class="uk-margin">
                             <input id="edit_dir" class="uk-input" type="text" disabled>
                         </div>
-                        <button id="edit_setting" data-id="" onclick="save(this)" class="uk-button uk-button-primary" type="button">保存</button>
-                        <button id="delete_setting" data-id="" onclick="remove(this)" class="uk-button uk-button-danger" type="button">削除</button>
+                        <button id="edit_setting" data-id="" onclick="save(this)" class="uk-button uk-button-primary"
+                            type="button">保存</button>
+                        <button id="delete_setting" data-id="" onclick="remove(this)" class="uk-button uk-button-danger"
+                            type="button">削除</button>
                     </fieldset>
                 </form>
             </div>
