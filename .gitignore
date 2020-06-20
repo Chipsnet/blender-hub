@@ -1,8 +1,8 @@
-node_modules
-config.json
+.nuxt
 dist
+build/*
+!build/icons
+node_modules
+
 prerelease.bat
 release.bat
-prerelease.bat
-yarn-error.log
-test

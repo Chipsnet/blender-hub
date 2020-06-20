@@ -1,7 +1,0 @@
-{
-  "extends": [
-    "config:base"
-  ],
-  "baseBranches": ["develop"],
-  "labels": ["dependencies"]
-}

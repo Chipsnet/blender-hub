@@ -1,24 +1,44 @@
 {
   "name": "blender-hub",
   "version": "1.1.1",
-  "main": "src/index.js",
-  "repository": "https://github.com/Chipsnet/blender-hub.git",
-  "author": "Minato Minami(Chipsnet) <doronomori660@outlook.jp>",
-  "license": "MPL-2.0",
-  "dependencies": {
-    "electron-log": "^4.2.0",
-    "electron-updater": "^4.3.1",
-    "node-zip": "^1.1.1"
-  },
+  "description": "An electron-nuxt project",
+  "main": "./dist/main/index.js",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-builder --publish never -c build/electron-builder.yml",
-    "pre-build": "electron-builder --publish never -c build/electron-builder-pre.yml",
-    "release": "electron-builder --publish always -c build/electron-builder.yml",
-    "pre-release": "electron-builder --publish always -c build/electron-builder-pre.yml"
+    "dev": "node .electron-nuxt/dev.js",
+    "build": "node .electron-nuxt/build.js",
+    "test": "",
+    "preinstall": "node .electron-nuxt/check-engines.js",
+    "postinstall": "electron-builder install-app-deps "
+  },
+  "keywords": [],
+  "author": "Minato86 <doronomori660@outlook.jp>",
+  "license": "MIT",
+  "homepage": "https://github.com/michalzaq12/electron-nuxt/blob/master/README.md",
+  "engines" : {
+    "node" : ">=12.13.0"
+  },
+  "resolutions": {
+    "@types/node": "12.12.6"
   },
   "devDependencies": {
-    "electron": "9.0.4",
-    "electron-builder": "22.7.0"
+    "@xpda-dev/core": "^0.1.5",
+    "@xpda-dev/electron-launcher": "^0.2.1",
+    "@xpda-dev/electron-builder": "^0.2.1",
+    "@xpda-dev/webpack-step": "^0.1.2",
+    "deepmerge": "4.2.2",
+    "@fortawesome/fontawesome-free": "5.13.1",
+    "browser-env": "3.3.0",
+    "cross-env": "7.0.2",
+    "electron": "8.3.0",
+    "electron-builder": "22.7.0",
+    "electron-debug": "3.0.1",
+    "native-ext-loader": "2.3.0",
+    "nuxt": "2.12.2",
+    "vue-devtools": "5.1.3",
+    "roboto-fontface": "0.10.0",
+    "vuetify": "2.3.1",
+    "@nuxtjs/vuetify": "1.11.2",
+    "webpack": "4.43.0",
+    "webpack-node-externals": "1.7.2"
   }
 }
