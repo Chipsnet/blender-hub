@@ -6,3 +6,5 @@ release.bat
 prerelease.bat
 yarn-error.log
 test
+build
+src
