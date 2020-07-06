@@ -1,24 +1,42 @@
 {
   "name": "blender-hub",
-  "version": "1.1.1",
-  "main": "src/index.js",
-  "repository": "https://github.com/Chipsnet/blender-hub.git",
-  "author": "Minato Minami(Chipsnet) <doronomori660@outlook.jp>",
-  "license": "MPL-2.0",
-  "dependencies": {
-    "electron-log": "^4.2.0",
-    "electron-updater": "^4.3.1",
-    "node-zip": "^1.1.1"
-  },
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "electron .",
-    "build": "electron-builder --publish never -c build/electron-builder.yml",
-    "pre-build": "electron-builder --publish never -c build/electron-builder-pre.yml",
-    "release": "electron-builder --publish always -c build/electron-builder.yml",
-    "pre-release": "electron-builder --publish always -c build/electron-builder-pre.yml"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "electron": "9.0.5",
-    "electron-builder": "22.7.0"
-  }
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
