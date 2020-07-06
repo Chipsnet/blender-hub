@@ -1,7 +1,7 @@
 {
   "name": "blender-hub",
-  "version": "1.1.1",
-  "description": "An electron-nuxt project",
+  "version": "1.2.0",
+  "description": "A version management tool for Blender",
   "main": "./dist/main/index.js",
   "scripts": {
     "dev": "node .electron-nuxt/dev.js",
@@ -11,9 +11,9 @@
     "postinstall": "electron-builder install-app-deps "
   },
   "keywords": [],
-  "author": "Minato86 <doronomori660@outlook.jp>",
+  "author": "Minato Minami",
   "license": "MIT",
-  "homepage": "https://github.com/michalzaq12/electron-nuxt/blob/master/README.md",
+  "homepage": "https://github.com/Chipsnet/blender-hub",
   "engines" : {
     "node" : ">=12.13.0"
   },

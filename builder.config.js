@@ -43,9 +43,7 @@ const macOS = {
 
 module.exports = {
   asar: false,
-  productName: 'My browser',
-  appId: 'org.michalzarach.my-browser',
-  artifactName: 'my-browser-${version}.${ext}',
+  appId: 'com.minato86.blenderhub',
   directories: {
     output: 'build'
   },
