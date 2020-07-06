@@ -8,7 +8,9 @@ const windowsOS = {
   },
 
   nsis: {
-    differentialPackage: true
+    differentialPackage: true,
+    oneClick: false,
+    allowToChangeInstallationDirectory: true
   }
 }
 
