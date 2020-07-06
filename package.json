@@ -13,7 +13,8 @@
   "keywords": [],
   "author": "Minato Minami",
   "license": "MIT",
-  "homepage": "https://github.com/Chipsnet/blender-hub",
+  "repository": "https://github.com/Chipsnet/blender-hub",
+  "homepage": "https://chipsnet.github.io/blender-hub",
   "engines" : {
     "node" : ">=12.13.0"
   },
