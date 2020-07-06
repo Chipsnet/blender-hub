@@ -3,6 +3,5 @@ dist
 build/*
 !build/icons
 node_modules
-
 prerelease.bat
 release.bat
