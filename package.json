@@ -1,24 +1,29 @@
 {
-  "name": "blender-hub",
-  "version": "1.1.1",
-  "main": "src/index.js",
-  "repository": "https://github.com/Chipsnet/blender-hub.git",
-  "author": "Minato Minami(Chipsnet) <doronomori660@outlook.jp>",
-  "license": "MPL-2.0",
-  "dependencies": {
-    "electron-log": "^4.2.0",
-    "electron-updater": "^4.3.1",
-    "node-zip": "^1.1.1"
-  },
+  "private": true,
+  "name": "app",
+  "description": "My application description",
+  "version": "1.0.0",
+  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "main": "app/background.js",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-builder --publish never -c build/electron-builder.yml",
-    "pre-build": "electron-builder --publish never -c build/electron-builder-pre.yml",
-    "release": "electron-builder --publish always -c build/electron-builder.yml",
-    "pre-release": "electron-builder --publish always -c build/electron-builder-pre.yml"
+    "dev": "nextron",
+    "build": "nextron build",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "electron-serve": "^1.0.0",
+    "electron-store": "^5.2.0"
   },
   "devDependencies": {
-    "electron": "9.1.0",
-    "electron-builder": "22.7.0"
+    "@babel/core": "^7.10.2",
+    "@material-ui/core": "^4.10.1",
+    "babel-loader": "^8.1.0",
+    "electron": "^9.0.3",
+    "electron-builder": "^22.7.0",
+    "next": "^9.4.4",
+    "nextron": "^5.15.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.43.0"
   }
 }

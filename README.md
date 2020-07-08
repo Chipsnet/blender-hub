@@ -1,94 +1,41 @@
-> The English document is [here](./README_en.md).
+<p align="center"><img src="https://i.imgur.com/0vkxIMN.png"></p>
 
-# BlenderHub
+## Usage
 
-[![Image from Gyazo](https://i.gyazo.com/66b65ee1e919d97eb1eaea00566dbc3f.png)](https://gyazo.com/66b65ee1e919d97eb1eaea00566dbc3f)
+### Create an App
 
-BlenderHubは、Blenderのバージョン管理ツールです。       
-複数バージョンのBlenderを名前を付けて管理、ワンクリックで起動できます。
+```zsh
+# with `nextron`
+$ nextron init my-app --example with-javascript-material-ui
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Chipsnet/blender-hub/Node.js%20CI?style=flat-square)
-![GitHub](https://img.shields.io/github/license/chipsnet/blender-hub?style=flat-square)
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/chipsnet/blender-hub?include_prereleases&style=flat-square)
-![GitHub All Releases](https://img.shields.io/github/downloads/chipsnet/blender-hub/total?style=flat-square)    
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A81VPXD)
+# with npx
+$ npx create-nextron-app my-app --example with-javascript-material-ui
 
-## 機能
+# with yarn
+$ yarn create nextron-app my-app --example with-javascript-material-ui
 
-- インストール済みのBlenderを登録する
-- バージョンごとに名前を付けて管理する
-
-## 動作環境
-
-- Windows
-
-## インストール
-
-### Release（安定版）
-
-|プラットフォーム|ダウンロードリンク|
-|---------------|----------------|
-|Windows|[blender-hub-Setup-1.1.1.exe](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.1/blender-hub-Setup-1.1.1.exe)|
-|Mac|開発中|
-
-ダウンロードしたファイルを実行すると、BlenderHubが自動でインストールされます。      
-安定版は自動更新機能があるので、新規バージョンが出た場合自動で更新されます。
-
-### Pre-Release（プレビュー版）
-
-開発版のビルドです。        
-バグなどがあり、不安定な場合があります。
-
-|プラットフォーム|ダウンロードリンク|
-|---------------|----------------|
-|Windows 32bit|[blender-hub-1.1.0-rc.6-ia32-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0-rc.6/blender-hub-1.1.0-rc.6-ia32-win.zip)|
-|Windows 64bit|[blender-hub-1.1.0-rc.6-win.zip](https://github.com/Chipsnet/blender-hub/releases/download/v1.1.0-rc.6/blender-hub-1.1.0-rc.6-win.zip)|
-|Mac|開発中|
-
-プレビュー版にはインストーラーはありません。        
-ダウンロードしたファイルを解凍し、中の`blender-hub.exe`を実行してください。
-
-プレビュー版では、自動更新は無効になっています。
-
-## インストール（ソース）
-
-ソースコードからインストールする方法です。
-
-以下の環境が必要です。
-
-- Node.js: `v12.x`
-- Yarn: `Latest`
-
-次のコマンドを実行して起動します
-
-```bash
-git clone https://github.com/Chipsnet/blender-hub.git
-cd blender-hub
-yarn install
-yarn start
+# with pnpx
+$ pnpx create-nextron-app my-app --example with-javascript-material-ui
 ```
 
-インストーラーをビルドするには、`yarn build`を実行します。      
-zip形式でテストビルドを行うには、`yarn prebuild`を実行します。
+### Install Dependencies
 
-## コントリビュート
+```zsh
+$ cd my-app
 
-バグを見つけたり、欲しい機能がありましたら、[issueを立てて](https://github.com/Chipsnet/blender-hub/issues)問題を報告してください！
+# using yarn or npm
+$ yarn (or `npm install`)
 
-あなたは開発者ですか？      
-修正がある場合はdevelopブランチにPull Requestを行ってください。     
-決してmasterブランチにPull Requestをしないでください。
+# using pnpm
+$ pnpm install --shamefully-hoist
+```
 
-## License
+### Use it
 
-### Icon data
+```zsh
+# development mode
+$ yarn dev (or `npm run dev` or `pnpm run dev`)
 
-Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)
-
-## Donate
-
-- Kyash (ID: minato86)
-- [Patreon](https://www.patreon.com/minato86)
-- [Brave](https://brave.com/chi953) Rewards (上部のBrave Rewardsボタンから寄付できます)
-- [Fanbox](https://minato86.fanbox.cc/)
-- [PayPal.me](https://www.paypal.me/minatoo86)
+# production build
+$ yarn build (or `npm run build` or `pnpm run build`)
+```
