@@ -3,6 +3,9 @@ files:
 - "!config.json"
 - "!release.bat"
 - "!prerelease.bat"
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
 win:
   target:
     target: nsis
