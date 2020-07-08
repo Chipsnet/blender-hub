@@ -1,67 +1,80 @@
 import React from "react";
 import Head from "next/head";
-import { makeStyles, createStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogActions from "@material-ui/core/DialogActions";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
-import Link from "../components/Link";
-import electron from "electron";
+import Box from "@material-ui/core/Box";
 
-const useStyles = makeStyles((theme) =>
-    createStyles({
-        root: {
-            textAlign: "center",
-            paddingTop: theme.spacing(4),
-        },
-    })
-);
-
-const Home = () => {
-    const classes = useStyles({});
-    const [open, setOpen] = React.useState(false);
-    const handleClose = () => setOpen(false);
-    const handleClick = () => setOpen(true);
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
 
     return (
-        <React.Fragment>
-            <Head>
-                <title>Home - Nextron (with-javascript-material-ui)</title>
-            </Head>
-            <div className={classes.root}>
-                <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle>Super Secret Password</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>1-2-3-4-5</DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button color="primary" onClick={handleClose}>
-                            OK
-                        </Button>
-                    </DialogActions>
-                </Dialog>
-                <Typography variant="h4" gutterBottom>
-                    Material-UI
-                </Typography>
-                <Typography variant="subtitle1" gutterBottom>
-                    with Nextron
-                </Typography>
-                <img src="/images/logo.png" />
-                <Typography gutterBottom>
-                    <Link href="/next">Go to the next page</Link>
-                </Typography>
-                <Button
-                    variant="contained"
-                    color="secondary"
-                    onClick={handleClick}
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`simple-tabpanel-${index}`}
+            aria-labelledby={`simple-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Box p={3}>
+                    <Typography>{children}</Typography>
+                </Box>
+            )}
+        </div>
+    );
+}
+
+TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.any.isRequired,
+    value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+    return {
+        id: `simple-tab-${index}`,
+        "aria-controls": `simple-tabpanel-${index}`,
+    };
+}
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.paper
+    },
+}));
+const Home = () => {
+    const classes = useStyles();
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    return (
+        <div className={classes.root}>
+            <h1>BlenderHub</h1>
+            <AppBar position="static">
+                <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    aria-label="simple tabs example"
                 >
-                    Super Secret Password
-                </Button>
-            </div>
-        </React.Fragment>
+                    <Tab label="Versions" {...a11yProps(0)} />
+                    <Tab label="Projects" {...a11yProps(1)} />
+                </Tabs>
+            </AppBar>
+            <TabPanel value={value} index={0}>
+                test
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+                Item Two
+            </TabPanel>
+        </div>
     );
 };
 
