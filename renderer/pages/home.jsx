@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, styled, withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -44,9 +44,27 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        backgroundColor: theme.palette.background.paper
+        backgroundColor: theme.palette.background.paper,
+        margin: "0 20px",
     },
 }));
+
+const MainTab = styled(AppBar)({
+    borderRadius: 8,
+});
+
+const StyledTabs = withStyles({
+    indicator: {
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: "transparent",
+        "& > span": {
+            maxWidth: 0,
+            width: "100%",
+        },
+    },
+})((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
+
 const Home = () => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
@@ -57,22 +75,25 @@ const Home = () => {
 
     return (
         <div className={classes.root}>
+            <Head>
+                <title>BlenderHub - A version management tool for Blender</title>
+            </Head>
             <h1>BlenderHub</h1>
-            <AppBar position="static">
-                <Tabs
+            <MainTab position="static">
+                <StyledTabs
                     value={value}
                     onChange={handleChange}
                     aria-label="simple tabs example"
                 >
                     <Tab label="Versions" {...a11yProps(0)} />
                     <Tab label="Projects" {...a11yProps(1)} />
-                </Tabs>
-            </AppBar>
+                </StyledTabs>
+            </MainTab>
             <TabPanel value={value} index={0}>
-                test
+                versions page
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
+                projects page
             </TabPanel>
         </div>
     );
