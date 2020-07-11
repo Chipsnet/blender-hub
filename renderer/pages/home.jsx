@@ -7,6 +7,16 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import { theme } from "../lib/theme";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -47,6 +57,15 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.paper,
         margin: "0 20px",
     },
+    paper: {
+        padding: theme.spacing(2),
+        "& > h3": {
+            margin: 0,
+        },
+        "& > p": {
+            margin: "1.2em 0",
+        },
+    },
 }));
 
 const MainTab = styled(AppBar)({
@@ -68,6 +87,15 @@ const StyledTabs = withStyles({
 const Home = () => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -76,7 +104,9 @@ const Home = () => {
     return (
         <div className={classes.root}>
             <Head>
-                <title>BlenderHub - A version management tool for Blender</title>
+                <title>
+                    BlenderHub - A version management tool for Blender
+                </title>
             </Head>
             <h1>BlenderHub</h1>
             <MainTab position="static">
@@ -90,11 +120,34 @@ const Home = () => {
                 </StyledTabs>
             </MainTab>
             <TabPanel value={value} index={0}>
-                versions page
+                <Grid container spacing={3}>
+                    <Grid item xs={4}>
+                        <Paper className={classes.paper} onClick={handleClickOpen}>
+                            <h3>VersionName</h3>
+                            <p>VersionPath</p>
+                            <Button variant="contained" size="small" color="primary">
+                                起動
+                            </Button>
+                        </Paper>
+                    </Grid>
+                </Grid>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                projects page
+                <h3>Projects</h3>
             </TabPanel>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">Processing...</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        <CircularProgress></CircularProgress>
+                    </DialogContentText>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 };
