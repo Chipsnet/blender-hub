@@ -17,6 +17,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { theme } from "../lib/theme";
+import { i18n, Link, withTranslation } from "../i18n";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -84,7 +85,7 @@ const StyledTabs = withStyles({
     },
 })((props) => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
 
-const Home = () => {
+const Home = (t) => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
     const [open, setOpen] = React.useState(false);
@@ -122,10 +123,15 @@ const Home = () => {
             <TabPanel value={value} index={0}>
                 <Grid container spacing={3}>
                     <Grid item xs={4}>
-                        <Paper className={classes.paper} onClick={handleClickOpen}>
+                        <Paper className={classes.paper}>
                             <h3>VersionName</h3>
                             <p>VersionPath</p>
-                            <Button variant="contained" size="small" color="primary">
+                            <Button
+                                variant="contained"
+                                size="small"
+                                color="primary"
+                                onClick={handleClickOpen}
+                            >
                                 起動
                             </Button>
                         </Paper>
@@ -141,7 +147,7 @@ const Home = () => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">Processing...</DialogTitle>
+                <DialogTitle id="alert-dialog-title">{t('processing')}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         <CircularProgress></CircularProgress>
@@ -152,4 +158,12 @@ const Home = () => {
     );
 };
 
-export default Home;
+Home.getInitialProps = async () => ({
+    namespacesRequired: ["common"],
+});
+
+Home.propTypes = {
+    t: PropTypes.func.isRequired,
+};
+
+export default withTranslation('common')(Home)

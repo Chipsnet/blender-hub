@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "electron-serve": "^1.0.0",
-    "electron-store": "^5.2.0"
+    "electron-store": "^5.2.0",
+    "next-i18next": "^4.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
