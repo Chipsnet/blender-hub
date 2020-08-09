@@ -1,24 +1,20 @@
 # blender-hub
 
-## Project setup
-```
+## 依存関係関係のインストール
+
+```shell
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+## Electronの実行
+
 ```
-yarn serve
+yarn electron:serve
 ```
 
-### Compiles and minifies for production
+## Electronのビルド
+
 ```
-yarn build
+yarn electron:build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
