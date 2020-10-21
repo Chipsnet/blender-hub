@@ -33,11 +33,12 @@ const createWindows = () => {
         webPreferences: {
             nodeIntegration: false,
             preload: __dirname + '/js/preload.js',
+            enableRemoteModule: true
         }
     })
 
     win.setMenu(null)
-    // win.webContents.openDevTools()
+    win.webContents.openDevTools()
     win.loadFile(__dirname + '/views/index.html')
 
     // 更新した後かどうか確認するやつ
