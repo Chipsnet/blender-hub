@@ -18,7 +18,7 @@
     "pre-release": "electron-builder --publish always -c build/electron-builder-pre.yml"
   },
   "devDependencies": {
-    "electron": "10.1.4",
+    "electron": "11.2.1",
     "electron-builder": "22.9.1"
   }
 }
