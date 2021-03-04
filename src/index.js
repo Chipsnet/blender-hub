@@ -3,13 +3,15 @@ const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron')
 const fs = require("fs")
 const exec = require('child_process').exec
 const config = require('../package.json')
+const platform = require("./js/platform")
+const path = require("path")
 require('./auto-update');
 let win;
 
 log.transports.file.level = 'debug'
 
 const dataDir = app.getPath('userData')
-const dbFile = dataDir + '/database.json'
+const dbFile = path.join(dataDir,'/database.json')
 log.debug("dir:", dataDir, "file:", dbFile)
 
 const options = {
@@ -104,7 +106,9 @@ ipcMain.on('remove_database', (event, arg) => {
 ipcMain.on('add_database', (event, dir, name) => {
     try {
         let jsondata = JSON.parse(fs.readFileSync(dbFile))
-        let addData = { "name": name, "path": dir + "\\blender.exe", "dir": dir }
+        let blender_name = platform.execFileName("blender")
+        let blender_path = path.join(dir, blender_name)
+        let addData = { "name": name, "path": blender_path, "dir": dir }
         jsondata.versions.push(addData);
         log.debug('database added', addData)
         fs.writeFileSync(dbFile, JSON.stringify(jsondata, null, "    "))
@@ -118,7 +122,9 @@ ipcMain.on('add_database', (event, dir, name) => {
 ipcMain.on('load_dir', (event, arg) => {
     // ディレクトリにBlenderが存在するか
     try {
-        fs.statSync(arg + '/blender.exe')
+        let blender_name = platform.execFileName("blender")
+        let blender_path = path.join(arg, blender_name)
+        fs.statSync(blender_path)
         event.sender.send('res_load_dir', true, arg)
     } catch (error) {
         console.log(error);
