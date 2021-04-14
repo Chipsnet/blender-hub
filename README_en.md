@@ -1,4 +1,4 @@
-> 日本語版は[こちら](./README.md)
+[日本語](./README.md)｜English
 
 > 📌 For foreign Blender users. Sorry, BlenderHub only supports Japanese language now. However, we plan to support multiple languages in the future. Please wait for support or learn Japanese.
 
