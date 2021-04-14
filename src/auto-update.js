@@ -40,6 +40,8 @@ autoUpdater.on('update-downloaded', (info) => {
     dialog.showMessageBox(null, options).then((res) => {
         if (res.response == 0) {
             autoUpdater.quitAndInstall(false, true)
+        } else {
+            alert("アップデートはソフトウェアの終了後に自動的に行われます。")
         }
     })
 });
