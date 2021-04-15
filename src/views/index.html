@@ -28,6 +28,8 @@
                 <button id="refresh" class="uk-icon-link" uk-icon="refresh" style="margin: 0.2em 0 0 1em;"></button>
                 <button id="toggle_list" class="uk-icon-link" uk-icon="list" uk-toggle="target: .toggle"
                     style="margin: 0.2em 0 0 1em;"></button>
+                <button id="toggle_info" class="uk-icon-link" uk-icon="info" uk-toggle="target: #info"
+                    style="margin: 0.2em 0 0 1em;"></button>
             </div>
             <hr>
             <div id="content"></div>
@@ -40,6 +42,12 @@
         <div id="loading" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
                 <div uk-spinner></div> 処理中
+            </div>
+        </div>
+        <div id="info" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <h2 class="uk-modal-title">このソフトウェアについて</h2>
+                <p>現在のバージョン<span id="version"></span></p>
             </div>
         </div>
         <div id="setting" uk-modal="bg-close: false; esc-close: false;">

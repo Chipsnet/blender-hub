@@ -3,6 +3,9 @@ const electron = window.electron
 const log = window.log
 const ipcRenderer = electron.ipcRenderer
 const dialog = electron.remote.dialog
+const config = window.config
+const require = window.require;
+let $ = jQuery = require('./jquery.js');
 
 // html elements
 const content = document.getElementById('content')
@@ -16,12 +19,16 @@ const settingModal = document.getElementById('setting')
 const loadingModal = document.getElementById('loading')
 const editModal = document.getElementById('edit')
 const refreshButton = document.getElementById('refresh')
+const infoButton = document.getElementById('toggle_info')
 const inputDir = document.getElementById('dir')
 const inputName = document.getElementById('regist_name')
 const editButton = document.getElementById('edit_setting')
 const deleteButton = document.getElementById('delete_setting')
 const editName = document.getElementById('edit_name')
 const editDir = document.getElementById('edit_dir')
+
+// infoへのデータの受け渡し
+$("#version").html(config.version)
 
 // ipcでデータベースを要求
 const db = ipcRenderer.sendSync('load_database', '')
