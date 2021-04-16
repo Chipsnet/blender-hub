@@ -84,7 +84,7 @@ const createWindows = () => {
                     if (dbData["app-version"] == config.version) {
                         log.info("false");
                         dialog.showMessageBox(win, options).then((res) => {
-                            if (res.response != 0) {
+                            if (res.response == 0) {
                                 shell.openExternal(
                                     `https://github.com/Chipsnet/blender-hub/releases/tag/v${config.version}`
                                 );
