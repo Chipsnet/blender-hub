@@ -7,7 +7,9 @@
   "license": "MPL-2.0",
   "dependencies": {
     "electron-log": "^4.2.0",
+    "electron-prompt": "^1.6.2",
     "electron-updater": "^4.3.1",
+    "js-yaml": "^4.1.0",
     "node-zip": "^1.1.1"
   },
   "scripts": {

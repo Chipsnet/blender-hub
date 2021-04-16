@@ -663,6 +663,13 @@ dmg-license@^1.0.8:
     smart-buffer "^4.0.2"
     verror "^1.10.0"
 
+doc-ready@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/doc-ready/-/doc-ready-1.0.4.tgz#37f5391969cff994303fdfef2e5d50357f8164d3"
+  integrity sha1-N/U5GWnP+ZQwP9/vLl1QNX+BZNM=
+  dependencies:
+    eventie "^1"
+
 dot-prop@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-5.2.0.tgz#c34ecc29556dc45f1f4c22697b6f4904e0cc4fcb"
@@ -724,6 +731,13 @@ electron-log@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/electron-log/-/electron-log-4.2.0.tgz#44ef0987fcc53097ad0574b94672fc6712b234e1"
   integrity sha512-Yy1X8iZEzoBA8pu5b7YU07dRHi1GPM9C5jLEOn87Uqtdc9rbe6KbvvQ/AAAtGvn4/GC3azRW/eeiSI4ZF+Hm2A==
+
+electron-prompt@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/electron-prompt/-/electron-prompt-1.6.2.tgz#e26bd3d359120bd45ce2f9625bdc380deb7ee269"
+  integrity sha512-gC9ZpMopIgz1kW92J7UfsXarkLdPH2zhr77bnJFlDSduYjRlr9nEPm4ux1vyzJsO72AdOyvuPPIQB0j+gWsncQ==
+  dependencies:
+    doc-ready "^1.0.4"
 
 electron-publish@22.10.5:
   version "22.10.5"
@@ -822,6 +836,11 @@ esprima@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
   integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
+
+eventie@^1:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/eventie/-/eventie-1.0.6.tgz#d4ffc8b0c2b5e493c2aa1b22cbe918d3aee74437"
+  integrity sha1-1P/IsMK15JPCqhsiy+kY067nRDc=
 
 extract-zip@^1.0.3:
   version "1.7.0"
@@ -1198,6 +1217,13 @@ js-yaml@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.0.0.tgz#f426bc0ff4b4051926cd588c71113183409a121f"
   integrity sha512-pqon0s+4ScYUvX30wxQi3PogGFAlUyH0awepWvwkj4jD4v+ova3RiYw8bmA6x2rDrEaj8i/oWKoRxpVNW+Re8Q==
+  dependencies:
+    argparse "^2.0.1"
+
+js-yaml@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
+  integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
   dependencies:
     argparse "^2.0.1"
 

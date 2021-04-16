@@ -1,0 +1,4 @@
+check_changelog_title: BlenderHub has been updated.
+check_changelog_message: Do you want to show changelog?
+yes: "YES"
+no: "NO"
