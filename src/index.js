@@ -81,7 +81,7 @@ const createWindows = () => {
                         "config-app-version:",
                         config.version
                     );
-                    if (dbData["app-version"] == config.version) {
+                    if (dbData["app-version"] != config.version) {
                         log.info("false");
                         dialog.showMessageBox(win, options).then((res) => {
                             if (res.response == 0) {
