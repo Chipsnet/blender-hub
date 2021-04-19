@@ -7,7 +7,7 @@ const platform = require("./js/platform");
 const path = require("path");
 const prompt = require("electron-prompt");
 require("./auto-update");
-const yaml = require('js-yaml');
+const yaml = require("js-yaml");
 let win;
 
 log.transports.file.level = "debug";
@@ -59,11 +59,14 @@ const createWindows = () => {
             if (r === null) {
                 app.quit();
             } else {
-                log.debug('language selected:', r)
+                log.debug("language selected:", r);
 
-                const t = yaml.load(fs.readFileSync(__dirname + `/i18n/${r}.yml`, 'utf8'));
+                // ipc send
+                win.webContents.send("test", "arg");
 
-                console.log(t["check_changelog_title"]);
+                const t = yaml.load(
+                    fs.readFileSync(__dirname + `/i18n/${r}.yml`, "utf8")
+                );
 
                 const options = {
                     type: "question",
@@ -71,7 +74,7 @@ const createWindows = () => {
                     title: t["check_changelog_title"],
                     message: t["check_changelog_message"],
                 };
-            
+
                 // 更新した後かどうか確認するやつ
                 if (fs.existsSync(dbFile)) {
                     let dbData = JSON.parse(fs.readFileSync(dbFile));
@@ -108,10 +111,34 @@ app.whenReady().then(createWindows);
 
 ipcMain.on("load_database", (event, arg) => {
     if (!fs.existsSync(dbFile)) {
-        let dbData = { versions: [], "app-version": config.version };
-        fs.writeFileSync(dbFile, JSON.stringify(dbData, null, "    "));
-        event.returnValue = dbData;
-        log.debug(dbData);
+        prompt(
+            {
+                title: "Choose language",
+                label: "言語を選択してください / Choose your language",
+                type: "select",
+                skipTaskbar: true,
+                menuBarVisible: false,
+                selectOptions: {
+                    ja: "日本語",
+                    en: "English",
+                },
+                width: 500,
+                height: 180,
+                alwaysOnTop: true,
+            },
+            win
+        ).then((r) => {
+            if (r === null) {
+                app.quit();
+            } else {
+                log.debug("language selected:", r);
+
+                let dbData = { versions: [], "app-version": config.version, "language": r };
+                fs.writeFileSync(dbFile, JSON.stringify(dbData, null, "    "));
+                event.returnValue = dbData;
+                log.debug(dbData);
+            }
+        });
     } else {
         let dbData = JSON.parse(fs.readFileSync(dbFile));
         event.returnValue = dbData;

@@ -63,6 +63,9 @@ if (db.versions.length == 0) {
     installedCard.innerHTML = card_html_data
 }
 
+// 翻訳文の挿入
+
+
 // インストール済みのBlender登録
 selectFolder.addEventListener('click', () => {
     dialog.showOpenDialog(null, {
@@ -111,6 +114,10 @@ ipcRenderer.on('res_add_database', (event, ...args) => {
 // 実行中のエラー
 ipcRenderer.on('run_err', (event, arg) => {
     UIkit.notification({ message: 'エラーが発生しました。ERR: ' + arg, status: 'danger' })
+})
+
+ipcRenderer.on('test', (event, arg) => {
+    console.log(arg);
 })
 
 const lunch = (arg) => {
