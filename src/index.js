@@ -37,7 +37,7 @@ const createWindows = () => {
     win.setMenu(null);
     win.webContents.openDevTools();
     win.loadFile(__dirname + "/views/index.html");
-
+    /*
     prompt(
         {
             title: "Choose language",
@@ -105,6 +105,7 @@ const createWindows = () => {
             }
         })
         .catch(console.error);
+        */
 };
 
 app.whenReady().then(createWindows);
@@ -141,6 +142,11 @@ ipcMain.on("load_database", (event, arg) => {
         });
     } else {
         let dbData = JSON.parse(fs.readFileSync(dbFile));
+
+        if (!dbData["language"]) {
+            console.log("language not available");
+        }
+
         event.returnValue = dbData;
         log.debug(dbData);
     }
