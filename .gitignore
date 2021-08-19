@@ -1,11 +1,5 @@
-node_modules
-config.json
+.nuxt
 dist
-prerelease.bat
-release.bat
-prerelease.bat
-yarn-error.log
-test
-build
-# src
-.DS_Store
+build/*
+!build/icons
+node_modules
