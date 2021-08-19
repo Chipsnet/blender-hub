@@ -8,10 +8,16 @@
                 </el-menu-item>
             </nuxt-link>
             <nuxt-link :to="localePath('projects')">
-                            <el-menu-item index="2">
-                <i class="el-icon-folder-opened"></i>
-                <span slot="title">Projects</span>
-            </el-menu-item>
+                <el-menu-item index="2">
+                    <i class="el-icon-folder-opened"></i>
+                    <span slot="title">Projects</span>
+                </el-menu-item>
+            </nuxt-link>
+            <nuxt-link :to="localePath('about')">
+                <el-menu-item index="3">
+                    <i class="el-icon-info"></i>
+                    <span slot="title">About</span>
+                </el-menu-item>
             </nuxt-link>
         </el-menu>
     </el-aside>

@@ -1,7 +1,16 @@
 {
   "button": {
     "activeCardView": "CardView",
-    "activListView": "ListView"
+    "activeListView": "ListView"
   },
-  "menu": {}
+  "menu": {},
+  "about": {
+    "title": "About BlenderHub",
+    "dependencies": "Dependencies",
+    "author": "Developer",
+    "version": "Version",
+    "openSourceTitle": "OpenSource",
+    "textOpenSource": "BlenderHub is built using a lot of open source software. \nThanks to all the contributors.",
+    "openSourceLink": "List of all open sources"
+  }
 }

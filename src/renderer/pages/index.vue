@@ -1,9 +1,9 @@
 <template>
     <div>
         <el-switch
-            v-model="value1"
-            :active-text="$t('button.activeCardView')"
-            :inactive-text="$t('button.activListView')"
+            v-model="viewSwitch"
+            :active-text="$t('button.activeListView')"
+            :inactive-text="$t('button.activeCardView')"
         >
         </el-switch>
     </div>
@@ -19,7 +19,7 @@ export default {
     },
     data() {
         return {
-            value1: true
+            viewSwitch: false
         };
     },
     methods: {
