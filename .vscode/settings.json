@@ -1,0 +1,7 @@
+{
+    "i18n-ally.localesPaths": [
+        "src/renderer/locales"
+    ],
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.extract.autoDetect": true
+}

@@ -1,0 +1,7 @@
+{
+  "button": {
+    "activeCardView": "CardView",
+    "activListView": "ListView"
+  },
+  "menu": {}
+}

@@ -2,8 +2,8 @@
     <div>
         <el-switch
             v-model="value1"
-            active-text="Pay by month"
-            inactive-text="Pay by year"
+            :active-text="$t('button.activeCardView')"
+            :inactive-text="$t('button.activListView')"
         >
         </el-switch>
     </div>

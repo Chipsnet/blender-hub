@@ -1,62 +1,22 @@
 <template>
-  <header class="main-header">
-    <nav>
-      <div>
-        <nuxt-link
-          to="/"
-          exact
+    <el-row type="flex" class="row-bg" justify="space-between">
+        <el-col :span="6"><span>BlenderHub</span></el-col>
+        <el-col :span="6" style="text-align:right">
+            <el-dropdown>
+                <el-button icon="el-icon-search" circle></el-button>
+                <el-dropdown-menu slot="dropdown">
+                    <a href="#" @click.prevent.stop="$i18n.setLocale('ja')"><el-dropdown-item>日本語</el-dropdown-item></a>
+                    <a href="#" @click.prevent.stop="$i18n.setLocale('en')"><el-dropdown-item>English</el-dropdown-item></a>
+                </el-dropdown-menu>
+            </el-dropdown></el-col
         >
-          System info
-        </nuxt-link>
-      </div>
-      <div>
-        <nuxt-link
-          to="/other"
-          exact
-        >
-          Next page
-        </nuxt-link>
-      </div>
-    </nav>
-  </header>
+    </el-row>
 </template>
 
-<script>
-export default {
 
-}
-</script>
-
-<style scoped>
-    .main-header {
-        height: 50px;
-        display: flex;
-        background-color: #364758;
-    }
-
-    nav{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    nav div{
-        height: 100%;
-        margin: 0 20px;
-        display: flex;
-        align-items: center;
-    }
-
+<style>
     a {
-        font-family: Helvetica, sans-serif;
-        color: white;
-        font-size: 1rem;
-        font-weight: 100;
-        text-decoration: underline;
-        text-transform: uppercase;
-    }
-
-    a:hover{
-        opacity: 0.9;
+        color: #303133;
+        text-decoration: none;
     }
 </style>

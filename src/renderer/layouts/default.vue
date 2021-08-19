@@ -1,7 +1,7 @@
 <template>
     <el-container style="height: 100vh">
-        <el-header style="font-size: 12px">
-            <span>BlenderHub</span>
+        <el-header>
+            <topHeader />
         </el-header>
         <el-container>
             <sidebar />
@@ -14,14 +14,21 @@
 
 <script>
 import sidebar from "@/components/sidebar";
+import topHeader from "@/components/header";
+
 export default {
-    components: { sidebar }
+    components: { sidebar, topHeader },
+    methods: {
+        switchLocale() {
+            this.$i18n.locale = this.$i18n.locale === "en" ? "ja" : "en";
+        }
+    }
 };
 </script>
 
 <style>
 body {
-    margin: 0 !important; 
+    margin: 0 !important;
 }
 
 .el-header {

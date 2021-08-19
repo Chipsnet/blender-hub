@@ -20,7 +20,7 @@ module.exports = {
     buildModules: [],
     modules: [
         [
-            "nuxt-i18n",
+            "@nuxtjs/i18n",
             {
                 // 使用する言語の設定
                 locales: [
@@ -28,16 +28,15 @@ module.exports = {
                         code: "ja",
                         name: "Japanese",
                         iso: "ja_JP",
-                        file: "ja.yml"
+                        file: "ja.json"
                     },
                     {
                         code: "en",
                         name: "English",
                         iso: "en-US",
-                        file: "en.yml"
+                        file: "en.json"
                     }
                 ],
-                defaultLocale: "ja",
                 langDir: "locales/",
                 strategy: "prefix_and_default",
                 vueI18n: {
