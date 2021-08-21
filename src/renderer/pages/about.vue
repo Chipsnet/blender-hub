@@ -21,6 +21,12 @@
                 </p>
             </el-col>
             <el-col :span="12">
+                <p class="sub-title">{{ $t("about.platform") }}</p>
+                <p>
+                    {{ platform }}
+                </p>
+            </el-col>
+            <el-col :span="12">
                 <p class="sub-title">{{ $t("about.author") }}</p>
                 <p class="text-nospace">巳波みなと</p>
                 <a
@@ -28,24 +34,27 @@
                     class="text-nospace"
                     @click.prevent.stop="openBrowser('https://minato86.me')"
                     >https://minato86.me</a
-                ><br>
+                ><br />
                 <a
                     href="#"
                     class="text-nospace"
-                    @click.prevent.stop="openBrowser('https://twitter.com/minatoo86')"
+                    @click.prevent.stop="
+                        openBrowser('https://twitter.com/minatoo86')
+                    "
                     >@minatoo86</a
                 >
             </el-col>
         </el-row>
-        <p class="sub-title">{{$t('about.openSourceTitle')}}</p>
-        <nuxt-link to="/">{{$t('about.openSourceLink')}}</nuxt-link>
-        <p class="text-nospace">{{$t('about.textOpenSource')}}</p>
-        <p class="sub-title">{{$t('about.pochipochi')}}</p>
+        <p class="sub-title">{{ $t("about.openSourceTitle") }}</p>
+        <nuxt-link to="/">{{ $t("about.openSourceLink") }}</nuxt-link>
+        <p class="text-nospace">{{ $t("about.textOpenSource") }}</p>
+        <p class="sub-title">{{ $t("about.pochipochi") }}</p>
     </div>
 </template>
 
 <script>
 import { shell } from "electron";
+import os from "os";
 
 export default {
     data() {
@@ -53,14 +62,15 @@ export default {
             version: require("./../../../package.json").version,
             chrome: process.versions.chrome,
             electron: process.versions.electron,
-            node: process.versions.node
+            node: process.versions.node,
+            platform: `${os.type()} ${os.release()}`,
         };
     },
     methods: {
         openBrowser(url) {
             shell.openExternal(url);
-        }
-    }
+        },
+    },
 };
 </script>
 
