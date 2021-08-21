@@ -40,6 +40,7 @@
         <p class="sub-title">{{$t('about.openSourceTitle')}}</p>
         <nuxt-link to="/">{{$t('about.openSourceLink')}}</nuxt-link>
         <p class="text-nospace">{{$t('about.textOpenSource')}}</p>
+        <p class="sub-title">{{$t('about.pochipochi')}}</p>
     </div>
 </template>
 

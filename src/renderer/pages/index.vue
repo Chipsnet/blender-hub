@@ -29,7 +29,7 @@ export default {
         openNotify() {
             this.$notify({
                 title: "Prompt",
-                message: "This is a message that does not automatically close"
+                message: "あんりみっしゅ"
             });
         }
     }
