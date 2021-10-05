@@ -39,8 +39,11 @@ module.exports = {
                 ],
                 langDir: "locales/",
                 strategy: "prefix_and_default",
-                fallbackLocale: "ja",
                 vueI18nLoader: true,
+                defaultLocale: "ja",
+                vueI18n: {
+                    fallbackLocale: "ja"
+                },
                 lazy: true
             }
         ]
