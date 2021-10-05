@@ -13,6 +13,9 @@
     "textOpenSource": "BlenderHub is built using a lot of open source software. \nThanks to all the contributors.",
     "openSourceLink": "List of all open sources",
     "pochipochi": "pochipochi-zone",
-    "platform": "Platform"
+    "platform": "Platform",
+    "dialog": {
+      "title": "List of using OpenSource"
+    }
   }
 }

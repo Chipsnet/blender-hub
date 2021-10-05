@@ -13,6 +13,9 @@
     "textOpenSource": "BlenderHubはたくさんのオープンソースソフトウェアを使用して作られています。\nすべてのコントリビューターたちに感謝します。",
     "openSourceLink": "使用オープンソース一覧を開く",
     "pochipochi": "ポチポチゾーン",
-    "platform": "プラットフォーム"
+    "platform": "プラットフォーム",
+    "dialog": {
+      "title": "使用オープンソース一覧"
+    }
   }
 }

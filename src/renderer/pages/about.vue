@@ -46,9 +46,34 @@
             </el-col>
         </el-row>
         <p class="sub-title">{{ $t("about.openSourceTitle") }}</p>
-        <nuxt-link to="/">{{ $t("about.openSourceLink") }}</nuxt-link>
+        <!-- Table -->
+        <a
+            href="#"
+            class="text-nospace"
+            @click.prevent.stop="openOpenSourceDialog = true"
+            >{{$t("about.openSourceLink")}}</a
+        >
         <p class="text-nospace">{{ $t("about.textOpenSource") }}</p>
         <p class="sub-title">{{ $t("about.pochipochi") }}</p>
+
+        <el-dialog :title="$t('about.dialog.title')" width="70%" :visible.sync="openOpenSourceDialog">
+            <el-table :data="gridData">
+                <el-table-column
+                    property="date"
+                    label="Date"
+                    width="150"
+                ></el-table-column>
+                <el-table-column
+                    property="name"
+                    label="Name"
+                    width="200"
+                ></el-table-column>
+                <el-table-column
+                    property="address"
+                    label="Address"
+                ></el-table-column>
+            </el-table>
+        </el-dialog>
     </div>
 </template>
 
@@ -64,6 +89,7 @@ export default {
             electron: process.versions.electron,
             node: process.versions.node,
             platform: `${os.type()} ${os.release()}`,
+            openOpenSourceDialog: false
         };
     },
     methods: {
