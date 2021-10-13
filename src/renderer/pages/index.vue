@@ -8,13 +8,14 @@
         </el-switch>
         <div id="cardview" v-if="!viewSwitch">
             <el-row :gutter="5">
-                <el-col :span="8" class="cardview-space">
+<el-col :span="8" class="cardview-space">
                     <div class="grid-content bg-purple">
                         <el-card
                             :body-style="{ padding: '0px' }"
                             shadow="hover"
                         >
                             <div style="padding: 14px">
+                                <img src="~/assets/blender_logo.svg" style="margin: 20px 0;" alt="" srcset="">
                                 <p>Blender 2.90</p>
                                 <p class="blender-path">
                                     /Applications/blender.app
@@ -46,6 +47,7 @@
                             shadow="hover"
                         >
                             <div style="padding: 14px">
+                                <img src="~/assets/blender_logo.svg" style="margin: 20px 0;" alt="" srcset="">
                                 <p>Blender 2.90</p>
                                 <p class="blender-path">
                                     /Applications/blender.app
@@ -77,6 +79,7 @@
                             shadow="hover"
                         >
                             <div style="padding: 14px">
+                                <img src="~/assets/blender_logo.svg" style="margin: 20px 0;" alt="" srcset="">
                                 <p>Blender 2.90</p>
                                 <p class="blender-path">
                                     /Applications/blender.app
