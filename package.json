@@ -37,5 +37,8 @@
     "nuxt": "2.15.6",
     "webpack": "4.44.2",
     "webpack-node-externals": "2.5.2"
+  },
+  "dependencies": {
+    "lowdb": "^3.0.0"
   }
 }

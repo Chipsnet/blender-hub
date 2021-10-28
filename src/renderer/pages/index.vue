@@ -140,6 +140,7 @@
 import { remote } from "electron";
 
 export default {
+    middleware: "startUp",
     data() {
         return {
             viewSwitch: false,
