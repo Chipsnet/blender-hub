@@ -1,4 +1,5 @@
 import { app } from 'electron'
+require('@electron/remote/main').initialize()
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {

@@ -137,10 +137,10 @@
 </template>
 
 <script>
-import { remote } from "electron";
+const { app } = require('@electron/remote')
 
 export default {
-    middleware: "startUp",
+    middleware: 'startUp',
     data() {
         return {
             viewSwitch: false,

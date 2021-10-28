@@ -21,6 +21,7 @@
     "@types/node": "12.12.6"
   },
   "devDependencies": {
+    "@electron/remote": "^2.0.1",
     "@mdi/font": "5.9.55",
     "@nuxtjs/i18n": "^7.0.2",
     "@xpda-dev/core": "^0.1.6",
@@ -39,6 +40,7 @@
     "webpack-node-externals": "2.5.2"
   },
   "dependencies": {
+    "lokijs": "^1.5.12",
     "lowdb": "^3.0.0"
   }
 }
