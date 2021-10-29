@@ -140,7 +140,7 @@
 const { app } = require('@electron/remote')
 
 export default {
-    middleware: 'startUp',
+    middleware: 'startup',
     data() {
         return {
             viewSwitch: false,
