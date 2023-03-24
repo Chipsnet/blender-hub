@@ -733,9 +733,7 @@ electron-log@^4.2.0:
   integrity sha512-Yy1X8iZEzoBA8pu5b7YU07dRHi1GPM9C5jLEOn87Uqtdc9rbe6KbvvQ/AAAtGvn4/GC3azRW/eeiSI4ZF+Hm2A==
 
 electron-prompt@^1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/electron-prompt/-/electron-prompt-1.6.2.tgz#e26bd3d359120bd45ce2f9625bdc380deb7ee269"
-  integrity sha512-gC9ZpMopIgz1kW92J7UfsXarkLdPH2zhr77bnJFlDSduYjRlr9nEPm4ux1vyzJsO72AdOyvuPPIQB0j+gWsncQ==
+  version "1.7.0"
   dependencies:
     doc-ready "^1.0.4"
 
