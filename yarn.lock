@@ -754,9 +754,7 @@ electron-publish@22.10.5:
     mime "^2.5.0"
 
 electron-updater@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/electron-updater/-/electron-updater-4.3.1.tgz#9d485b6262bc56fcf7ee62b1dc1b3b105a3e96a7"
-  integrity sha512-UDC5AHCgeiHJYDYWZG/rsl1vdAFKqI/Lm7whN57LKAk8EfhTewhcEHzheRcncLgikMcQL8gFo1KeX51tf5a5Wg==
+  version "4.6.5"
   dependencies:
     "@types/semver" "^7.1.0"
     builder-util-runtime "8.7.0"
