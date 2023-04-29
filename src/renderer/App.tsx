@@ -1,50 +1,129 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import icon from '../../assets/icon.svg';
+import {
+  Button,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  ChakraProvider,
+  Flex,
+  Text,
+  Box,
+  Heading,
+  extendTheme,
+  Grid,
+  GridItem,
+  Stack,
+  VStack,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+} from '@chakra-ui/react';
 import './App.css';
+import { ChevronDownIcon, SunIcon } from '@chakra-ui/icons';
+
+const theme = extendTheme({
+  fonts: {
+    heading: `'Noto Sans JP', sans-serif`,
+    body: `'Noto Sans JP', sans-serif`,
+  },
+});
 
 function Hello() {
   return (
-    <div>
-      <div className="Hello">
-        <img width="200" alt="icon" src={icon} />
-      </div>
-      <h1>electron-react-boilerplate</h1>
-      <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Read our docs
-          </button>
-        </a>
-        <a
-          href="https://github.com/sponsors/electron-react-boilerplate"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="folded hands">
-              🙏
-            </span>
-            Donate
-          </button>
-        </a>
-      </div>
-    </div>
+    <Box>
+      <Heading size="md" mb={5}>
+        バージョン
+      </Heading>
+      <VStack gap={2}>
+        <Card width={"full"}>
+          <CardHeader>
+            <Heading size="md">Blender 3.25</Heading>
+            <Text pt="2" fontSize="sm">
+              C:\Program Files\Blender Foundation\Blender 3.5\blender.exe
+            </Text>
+          </CardHeader>
+          <CardFooter>
+            <Button colorScheme="blue" leftIcon={<SunIcon />}>
+              起動する
+            </Button>
+          </CardFooter>
+        </Card>
+        <Card width={"full"}>
+          <CardHeader>
+            <Heading size="md">Blender 3.25</Heading>
+            <Text pt="2" fontSize="sm">
+              C:\Program Files\Blender Foundation\Blender 3.5\blender.exe
+            </Text>
+          </CardHeader>
+          <CardFooter>
+            <Button colorScheme="blue" leftIcon={<SunIcon />}>
+              起動する
+            </Button>
+          </CardFooter>
+        </Card>
+      </VStack>
+    </Box>
   );
 }
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Hello />} />
-      </Routes>
-    </Router>
+    <ChakraProvider theme={theme}>
+      <Grid
+        templateRows="repeat(10, 1fr)"
+        templateColumns="repeat(4, 1fr)"
+        height="100vh"
+      >
+        <GridItem colSpan={4} rowSpan={1}>
+          <Flex
+            bgColor="gray.50"
+            p={5}
+            justifyContent="space-between"
+            alignItems="center"
+            h="full"
+          >
+            <Box>
+              <Heading as="h1" size="md" fontWeight="bold">
+                BlenderHub
+              </Heading>
+            </Box>
+            <Box>
+              <Menu>
+                <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                  日本語
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>日本語</MenuItem>
+                  <MenuItem>English</MenuItem>
+                </MenuList>
+              </Menu>
+            </Box>
+          </Flex>
+        </GridItem>
+        <GridItem colSpan={1} rowSpan={9} shadow="md">
+          <VStack p={3} alignItems="start">
+            <Button colorScheme="blue" variant="outline">
+              バージョン
+            </Button>
+            <Button colorScheme="blue" variant="ghost">
+              プロジェクト
+            </Button>
+          </VStack>
+        </GridItem>
+        <GridItem colSpan={3} rowSpan={9} p={8}>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Hello />} />
+            </Routes>
+          </Router>
+        </GridItem>
+      </Grid>
+    </ChakraProvider>
   );
 }
