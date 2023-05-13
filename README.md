@@ -27,7 +27,6 @@ Clone the repo and install dependencies:
 ```bash
 git clone --depth 1 --branch main https://github.com/electron-react-boilerplate/electron-react-boilerplate.git your-project-name
 cd your-project-name
-npm install
 ```
 
 **Having issues installing? See our [debugging guide](https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues/400)**
@@ -45,7 +44,7 @@ npm start
 To package apps for the local platform:
 
 ```bash
-npm run package
+echo hello
 ```
 
 ## Docs

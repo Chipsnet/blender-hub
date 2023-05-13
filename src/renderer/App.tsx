@@ -1,31 +1,22 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   Button,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
   ChakraProvider,
   Flex,
-  Text,
   Box,
   Heading,
   extendTheme,
   Grid,
   GridItem,
-  Stack,
   VStack,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
 } from '@chakra-ui/react';
 import './App.css';
-import { ChevronDownIcon, SunIcon } from '@chakra-ui/icons';
+import { ChevronDownIcon } from '@chakra-ui/icons';
+import Versions from './versions';
 
 const theme = extendTheme({
   fonts: {
@@ -33,44 +24,6 @@ const theme = extendTheme({
     body: `'Noto Sans JP', sans-serif`,
   },
 });
-
-function Hello() {
-  return (
-    <Box>
-      <Heading size="md" mb={5}>
-        バージョン
-      </Heading>
-      <VStack gap={2}>
-        <Card width={"full"}>
-          <CardHeader>
-            <Heading size="md">Blender 3.25</Heading>
-            <Text pt="2" fontSize="sm">
-              C:\Program Files\Blender Foundation\Blender 3.5\blender.exe
-            </Text>
-          </CardHeader>
-          <CardFooter>
-            <Button colorScheme="blue" leftIcon={<SunIcon />}>
-              起動する
-            </Button>
-          </CardFooter>
-        </Card>
-        <Card width={"full"}>
-          <CardHeader>
-            <Heading size="md">Blender 3.25</Heading>
-            <Text pt="2" fontSize="sm">
-              C:\Program Files\Blender Foundation\Blender 3.5\blender.exe
-            </Text>
-          </CardHeader>
-          <CardFooter>
-            <Button colorScheme="blue" leftIcon={<SunIcon />}>
-              起動する
-            </Button>
-          </CardFooter>
-        </Card>
-      </VStack>
-    </Box>
-  );
-}
 
 export default function App() {
   return (
@@ -119,7 +72,7 @@ export default function App() {
         <GridItem colSpan={3} rowSpan={9} p={8}>
           <Router>
             <Routes>
-              <Route path="/" element={<Hello />} />
+              <Route path="/" element={<Versions />} />
             </Routes>
           </Router>
         </GridItem>
