@@ -1,11 +1,5 @@
 node_modules
-config.json
+*.log
+.next
+app
 dist
-prerelease.bat
-release.bat
-prerelease.bat
-yarn-error.log
-test
-build
-# src
-.DS_Store
