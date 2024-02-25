@@ -1,0 +1,48 @@
+p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Regular */
+@font-face {
+    font-family: 'LINESeedJP';
+    src: url('../fonts/LINESeedJP_OTF_Rg.woff2') format('woff');
+    font-weight: normal;
+    /* 400とも指定可能 */
+    font-style: normal;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'LINESeedJP';
+    src: url('../fonts/LINESeedJP_OTF_Bd.woff2') format('woff');
+    font-weight: bold;
+    /* 700とも指定可能 */
+    font-style: normal;
+}
+
+/* Extra Bold */
+@font-face {
+    font-family: 'LINESeedJP';
+    src: url('../fonts/LINESeedJP_OTF_Eb.woff2') format('woff');
+    font-weight: 800;
+    /* Extra Bold */
+    font-style: normal;
+}
+
+/* Thin */
+@font-face {
+    font-family: 'LINESeedJP';
+    src: url('../fonts/LINESeedJP_OTF_Th.woff2') format('woff');
+    font-weight: 100;
+    /* Thin */
+    font-style: normal;
+}
+
+body, .uk-h1, .uk-h2, h1, h2 {
+    font-family: 'LINESeedJP', sans-serif !important;
+}
