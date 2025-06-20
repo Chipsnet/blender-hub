@@ -7,4 +7,5 @@ prerelease.bat
 yarn-error.log
 test
 build
-src
+# src
+.DS_Store

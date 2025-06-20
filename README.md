@@ -1,4 +1,4 @@
-> The English document is [here](./README_en.md).
+日本語｜[English](./README_en.md)
 
 # BlenderHub
 
