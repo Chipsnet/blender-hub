@@ -1,15 +1,16 @@
 const log = require('electron-log')
 const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron')
 const fs = require("fs")
-const exec = require('child_process').exec
+const { exec } = require('child_process')
 const config = require('../package.json')
 require('./auto-update');
 let win;
 
 log.transports.file.level = 'debug'
 
+const path = require('path')
 const dataDir = app.getPath('userData')
-const dbFile = dataDir + '/database.json'
+const dbFile = path.join(dataDir, 'database.json')
 log.debug("dir:", dataDir, "file:", dbFile)
 
 const options = {
@@ -32,12 +33,13 @@ const createWindows = () => {
         height: 600,
         webPreferences: {
             nodeIntegration: false,
+            contextIsolation: true,
             preload: __dirname + '/js/preload.js',
         }
     })
 
     win.setMenu(null)
-    // win.webContents.openDevTools()
+    win.webContents.openDevTools()
     win.loadFile(__dirname + '/views/index.html')
 
     // 更新した後かどうか確認するやつ
@@ -61,49 +63,49 @@ const createWindows = () => {
 
 app.whenReady().then(createWindows)
 
-ipcMain.on('load_database', (event, arg) => {
+ipcMain.handle('load_database', async (event, arg) => {
     if (!fs.existsSync(dbFile)) {
         let dbData = { "versions": [], "app-version": config.version }
         fs.writeFileSync(dbFile, JSON.stringify(dbData, null, "    "))
-        event.returnValue = dbData
         log.debug(dbData)
+        return dbData
     } else {
         let dbData = JSON.parse(fs.readFileSync(dbFile))
-        event.returnValue = dbData
         log.debug(dbData)
+        return dbData
     }
 })
 
-ipcMain.on('edit_database', (event, ...args) => {
+ipcMain.handle('edit_database', async (event, ...args) => {
     try {
         let jsondata = JSON.parse(fs.readFileSync(dbFile))
         jsondata["versions"][args[0]]["name"] = args[1]
         fs.writeFileSync(dbFile, JSON.stringify(jsondata, null, "    "))
-        event.returnValue = [true, ""]
         log.debug("database changed to", jsondata)
+        return [true, ""]
     } catch (error) {
-        event.returnValue = [false, error]
         log.error(error)
+        return [false, error]
     }
 })
 
-ipcMain.on('remove_database', (event, arg) => {
+ipcMain.handle('remove_database', async (event, arg) => {
     try {
         let jsondata = JSON.parse(fs.readFileSync(dbFile))
         let removedData = jsondata["versions"].splice(arg, 1)
         log.debug('detabase removed', removedData)
         fs.writeFileSync(dbFile, JSON.stringify(jsondata, null, "    "))
-        event.returnValue = [true, ""]
+        return [true, ""]
     } catch (error) {
-        event.returnValue = [false, error]
         log.error(error)
+        return [false, error]
     }
 })
 
 ipcMain.on('add_database', (event, dir, name) => {
     try {
         let jsondata = JSON.parse(fs.readFileSync(dbFile))
-        let addData = { "name": name, "path": dir + "\\blender.exe", "dir": dir }
+        let addData = { "name": name, "path": path.join(dir, "blender.exe"), "dir": dir }
         jsondata.versions.push(addData);
         log.debug('database added', addData)
         fs.writeFileSync(dbFile, JSON.stringify(jsondata, null, "    "))
@@ -117,7 +119,7 @@ ipcMain.on('add_database', (event, dir, name) => {
 ipcMain.on('load_dir', (event, arg) => {
     // ディレクトリにBlenderが存在するか
     try {
-        fs.statSync(arg + '/blender.exe')
+        fs.statSync(path.join(arg, 'blender.exe'))
         event.sender.send('res_load_dir', true, arg)
     } catch (error) {
         console.log(error);
@@ -131,4 +133,10 @@ ipcMain.on('lunch_app', (event, id) => {
     exec(`"${jsondata.versions[id].path}"`, (err, stdout, stderr) => {
         if (err !== null) event.sender.send('run_err', err)
     })
+})
+
+// ダイアログ表示用のハンドラを追加
+ipcMain.handle('show-open-dialog', async (event, options) => {
+    const result = await dialog.showOpenDialog(win, options);
+    return result;
 })
