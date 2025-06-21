@@ -14,3 +14,11 @@ win:
     - ia32
   publish:
   - github
+mac:
+  category: public.app-category.utilities
+  target:
+    target: dmg
+    arch:
+    - universal
+  publish:
+  - github

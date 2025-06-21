@@ -146,7 +146,8 @@
                     inputDir.value = args[1];
                     UIkit.modal(settingModal).show();
                 } else {
-                    UIkit.notification({ message: '指定されたディレクトリからblender.exeが検出されませんでした。', status: 'danger' });
+                    const blenderFile = window.navigator.platform.includes('Mac') ? 'Blender.app' : 'blender.exe';
+                    UIkit.notification({ message: `指定されたディレクトリから${blenderFile}が検出されませんでした。`, status: 'danger' });
                 }
             });
         });

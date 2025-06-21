@@ -105,7 +105,10 @@ ipcMain.handle('remove_database', async (event, arg) => {
 ipcMain.on('add_database', (event, dir, name) => {
     try {
         let jsondata = JSON.parse(fs.readFileSync(dbFile))
-        let addData = { "name": name, "path": path.join(dir, "blender.exe"), "dir": dir }
+        const blenderPath = process.platform === 'darwin' 
+            ? path.join(dir, 'Blender.app/Contents/MacOS/Blender')
+            : path.join(dir, 'blender.exe');
+        let addData = { "name": name, "path": blenderPath, "dir": dir }
         jsondata.versions.push(addData);
         log.debug('database added', addData)
         fs.writeFileSync(dbFile, JSON.stringify(jsondata, null, "    "))
@@ -119,7 +122,10 @@ ipcMain.on('add_database', (event, dir, name) => {
 ipcMain.on('load_dir', (event, arg) => {
     // ディレクトリにBlenderが存在するか
     try {
-        fs.statSync(path.join(arg, 'blender.exe'))
+        const blenderPath = process.platform === 'darwin' 
+            ? path.join(arg, 'Blender.app')
+            : path.join(arg, 'blender.exe');
+        fs.statSync(blenderPath)
         event.sender.send('res_load_dir', true, arg)
     } catch (error) {
         console.log(error);
@@ -130,7 +136,10 @@ ipcMain.on('load_dir', (event, arg) => {
 ipcMain.on('lunch_app', (event, id) => {
     let jsondata = JSON.parse(fs.readFileSync(dbFile))
     console.log(jsondata.versions[id].path);
-    exec(`"${jsondata.versions[id].path}"`, (err, stdout, stderr) => {
+    const command = process.platform === 'darwin'
+        ? `open -a "${jsondata.versions[id].path}"`
+        : `"${jsondata.versions[id].path}"`;
+    exec(command, (err, stdout, stderr) => {
         if (err !== null) event.sender.send('run_err', err)
     })
 })
