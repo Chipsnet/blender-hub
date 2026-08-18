@@ -69,6 +69,14 @@ ipcMain.on('load_database', (event, arg) => {
         log.debug(dbData)
     } else {
         let dbData = JSON.parse(fs.readFileSync(dbFile))
+        let originalLength = dbData.versions.length
+        dbData.versions = dbData.versions.filter(version => {
+            return fs.existsSync(version.path)
+        })
+        if (dbData.versions.length < originalLength) {
+            fs.writeFileSync(dbFile, JSON.stringify(dbData, null, "    "))
+            log.debug('Removed non-existent entries from database')
+        }
         event.returnValue = dbData
         log.debug(dbData)
     }
